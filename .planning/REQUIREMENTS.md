@@ -1,0 +1,77 @@
+# Requirements — Personal Website (axelw.github.io)
+
+## v1 Requirements
+
+### Hero
+
+- [ ] **HERO-01**: Page shows user's name and title/tagline on load
+- [ ] **HERO-02**: Hero section includes a 1-2 sentence personal bio
+- [ ] **HERO-03**: Hero section includes CTA links to GitHub, LinkedIn, email, and CV download
+
+### CV
+
+- [ ] **CV-01**: Work experience section with role, company, dates, and brief description per entry
+- [ ] **CV-02**: Education section with degree, institution, and years per entry
+- [ ] **CV-03**: Skills section listing languages, tools, and frameworks as a flat list (no progress bars)
+- [ ] **CV-04**: Contact section with email, LinkedIn, and GitHub links
+
+### Projects
+
+- [ ] **PROJ-01**: Projects section fetches public GitHub repos via the GitHub REST API at build time
+- [ ] **PROJ-02**: Each project entry displays the repo name and description
+- [ ] **PROJ-03**: Each project entry links to a live demo if the repo's `homepage` field is set
+
+### Infrastructure
+
+- [ ] **INFRA-01**: Single scrolling page with a sticky/fixed header containing anchor nav links to each section
+- [ ] **INFRA-02**: Fully responsive layout — usable on mobile (320px+) and desktop (1440px)
+- [ ] **INFRA-03**: OpenGraph meta tags set for accurate social sharing preview (title, description, image)
+- [ ] **INFRA-04**: Downloadable CV PDF linked from the site (user provides the PDF file)
+- [ ] **INFRA-05**: Subtle scroll-reveal animations on section entry (fade/slide, respects `prefers-reduced-motion`)
+- [ ] **INFRA-06**: Next.js static export (`output: 'export'`) producing a deployable `out/` directory
+- [ ] **INFRA-07**: GitHub Actions workflow with daily cron trigger: rebuilds and deploys to `axelw.github.io`
+
+---
+
+## v2 (Deferred)
+
+- Language tag and star count per project card (GitHub API fields available, deferred for v1 simplicity)
+- GitHub repo topics displayed as tags on project entries
+- Light/subtle hover interactions on project cards
+
+---
+
+## Out of Scope
+
+- Blog / writing section — adds scope, content maintenance burden; defer indefinitely
+- Dark mode toggle — single intentional light theme chosen; avoid half-baked dual-theme
+- Contact form with server-side processing — incompatible with GitHub Pages static hosting
+- Skill progress bars — universally considered misleading/negative signal in tech hiring
+- CMS or admin panel — all content lives in code; no dynamic backend
+- Authentication / login — no private content
+
+---
+
+## Traceability
+
+*(Filled by roadmap — maps each REQ-ID to a phase)*
+
+| REQ-ID | Phase |
+|--------|-------|
+| HERO-01 | — |
+| HERO-02 | — |
+| HERO-03 | — |
+| CV-01 | — |
+| CV-02 | — |
+| CV-03 | — |
+| CV-04 | — |
+| PROJ-01 | — |
+| PROJ-02 | — |
+| PROJ-03 | — |
+| INFRA-01 | — |
+| INFRA-02 | — |
+| INFRA-03 | — |
+| INFRA-04 | — |
+| INFRA-05 | — |
+| INFRA-06 | — |
+| INFRA-07 | — |
