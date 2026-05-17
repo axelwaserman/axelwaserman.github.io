@@ -54,24 +54,22 @@
 
 ## Traceability
 
-*(Filled by roadmap — maps each REQ-ID to a phase)*
-
-| REQ-ID | Phase |
-|--------|-------|
-| HERO-01 | — |
-| HERO-02 | — |
-| HERO-03 | — |
-| CV-01 | — |
-| CV-02 | — |
-| CV-03 | — |
-| CV-04 | — |
-| PROJ-01 | — |
-| PROJ-02 | — |
-| PROJ-03 | — |
-| INFRA-01 | — |
-| INFRA-02 | — |
-| INFRA-03 | — |
-| INFRA-04 | — |
-| INFRA-05 | — |
-| INFRA-06 | — |
-| INFRA-07 | — |
+| REQ-ID | Phase | Status |
+|--------|-------|--------|
+| HERO-01 | Phase 2 | Pending |
+| HERO-02 | Phase 2 | Pending |
+| HERO-03 | Phase 2 | Pending |
+| CV-01 | Phase 2 | Pending |
+| CV-02 | Phase 2 | Pending |
+| CV-03 | Phase 2 | Pending |
+| CV-04 | Phase 2 | Pending |
+| PROJ-01 | Phase 3 | Pending |
+| PROJ-02 | Phase 3 | Pending |
+| PROJ-03 | Phase 3 | Pending |
+| INFRA-01 | Phase 2 | Pending |
+| INFRA-02 | Phase 2 | Pending |
+| INFRA-03 | Phase 2 | Pending |
+| INFRA-04 | Phase 2 | Pending |
+| INFRA-05 | Phase 2 | Pending |
+| INFRA-06 | Phase 1 | Pending |
+| INFRA-07 | Phase 4 | Pending |
