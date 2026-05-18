@@ -29,7 +29,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. `next.config.ts` has `output: 'export'` and `images: { unoptimized: true }` set
   3. Design tokens (palette, type scale, spacing) exist in `styles/tokens.css` as CSS custom properties
   4. `app/layout.tsx` renders a valid HTML shell with font loading and metadata object in place
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 01-01-PLAN.md — Scaffold, static export config, design tokens, font loading, and HTML shell
 
 ### Phase 2: Content
 **Goal**: A recruiter can visit the local dev server, read Axel's name, bio, work experience, education, skills, and contact details, and download the CV — fully responsive from 320px to 1440px
@@ -75,7 +78,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/TBD | Not started | - |
+| 1. Foundation | 0/1 | Not started | - |
 | 2. Content | 0/TBD | Not started | - |
 | 3. Projects | 0/TBD | Not started | - |
 | 4. Deploy | 0/TBD | Not started | - |
