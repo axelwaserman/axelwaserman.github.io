@@ -1,3 +1,10 @@
 export default function Home() {
-  return <main />
+  return (
+    <main>
+      {/* Hero */}
+      {/* CV */}
+      {/* Projects */}
+      {/* Contact */}
+    </main>
+  )
 }
