@@ -28,7 +28,7 @@
 - [ ] **INFRA-03**: OpenGraph meta tags set for accurate social sharing preview (title, description, image)
 - [ ] **INFRA-04**: Downloadable CV PDF linked from the site (user provides the PDF file)
 - [ ] **INFRA-05**: Subtle scroll-reveal animations on section entry (fade/slide, respects `prefers-reduced-motion`)
-- [ ] **INFRA-06**: Next.js static export (`output: 'export'`) producing a deployable `out/` directory
+- [x] **INFRA-06**: Next.js static export (`output: 'export'`) producing a deployable `out/` directory
 - [ ] **INFRA-07**: GitHub Actions workflow with daily cron trigger: rebuilds and deploys to `axelw.github.io`
 
 ---
@@ -71,5 +71,5 @@
 | INFRA-03 | Phase 2 | Pending |
 | INFRA-04 | Phase 2 | Pending |
 | INFRA-05 | Phase 2 | Pending |
-| INFRA-06 | Phase 1 | Pending |
+| INFRA-06 | Phase 1 | Complete |
 | INFRA-07 | Phase 4 | Pending |
