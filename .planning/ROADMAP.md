@@ -12,7 +12,7 @@ Four phases, dependency-ordered: the build configuration and design system come 
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation** - Project scaffold, static export config, design tokens, and HTML shell
+- [x] **Phase 1: Foundation** - Project scaffold, static export config, design tokens, and HTML shell (completed 2026-05-18)
 - [ ] **Phase 2: Content** - All static sections (Hero, CV, About, Contact) with layout, navigation, and responsiveness
 - [ ] **Phase 3: Projects** - GitHub API data layer and projects section wired end-to-end
 - [ ] **Phase 4: Deploy** - GitHub Actions workflow with daily cron delivering the live site
@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 1 plan
 
 Plans:
-- [ ] 01-01-PLAN.md — Scaffold, static export config, design tokens, font loading, and HTML shell
+- [x] 01-01-PLAN.md — Scaffold, static export config, design tokens, font loading, and HTML shell
 
 ### Phase 2: Content
 **Goal**: A recruiter can visit the local dev server, read Axel's name, bio, work experience, education, skills, and contact details, and download the CV — fully responsive from 320px to 1440px
@@ -78,7 +78,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/1 | Not started | - |
+| 1. Foundation | 1/1 | Complete   | 2026-05-18 |
 | 2. Content | 0/TBD | Not started | - |
 | 3. Projects | 0/TBD | Not started | - |
 | 4. Deploy | 0/TBD | Not started | - |

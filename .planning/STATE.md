@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
+status: verifying
 stopped_at: Phase 1 UI-SPEC approved
-last_updated: "2026-05-18T16:01:21.911Z"
-last_activity: 2026-05-18 -- Phase 01 execution started
+last_updated: "2026-05-18T16:14:36.575Z"
+last_activity: 2026-05-18
 progress:
   total_phases: 4
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 1
-  completed_plans: 0
-  percent: 0
+  completed_plans: 1
+  percent: 25
 ---
 
 # Project State
@@ -27,10 +27,10 @@ See: .planning/PROJECT.md (updated 2026-05-17)
 
 Phase: 01 (foundation) — EXECUTING
 Plan: 1 of 1
-Status: Executing Phase 01
-Last activity: 2026-05-18 -- Phase 01 execution started
+Status: Phase complete — ready for verification
+Last activity: 2026-05-18
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
@@ -63,6 +63,9 @@ Recent decisions affecting current work:
 - Init: axelw.github.io is a user-page repo — NO basePath needed; `actions/configure-pages@v5` handles it
 - Init: No skills directory found; standard Next.js/Tailwind patterns apply
 - Init: `output: 'export'` + `images: { unoptimized: true }` must be set in Phase 1 before any component work
+- 01-01: Scaffolded manually (create-next-app blocked by existing .planning/ and CLAUDE.md files) — all project files created by hand to identical effect
+- 01-01: Font pairing — Sora (body/UI, weights 400–700) + Instrument Serif (headings only, weight 400); both via next/font/google, zero runtime Google Fonts requests
+- 01-01: Design tokens in Tailwind v4 @theme directive — 4 oklch color tokens (warm parchment palette) + 4 clamp() type scale tokens; spacing/radius/animation deferred to Phase 2
 
 ### Pending Todos
 
@@ -70,7 +73,6 @@ None yet.
 
 ### Blockers/Concerns
 
-- Design direction (typography pairing, palette specifics) not yet defined — Phase 1/2 boundary decision, needed before `styles/tokens.css` is finalized
 - Real CV content (work experience, bio, skills) will be placeholders in Phase 2; must be replaced before launch
 
 ## Deferred Items
@@ -83,6 +85,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-05-18T15:02:33.658Z
-Stopped at: Phase 1 UI-SPEC approved
-Resume file: .planning/phases/01-foundation/01-UI-SPEC.md
+Last session: 2026-05-18T16:14:36.569Z
+Stopped at: Phase 01 Plan 01 complete — Walking Skeleton proven
+Resume file: .planning/phases/01-foundation/01-01-SUMMARY.md
