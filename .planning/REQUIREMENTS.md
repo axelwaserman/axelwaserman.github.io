@@ -10,10 +10,10 @@
 
 ### CV
 
-- [ ] **CV-01**: Work experience section with role, company, dates, and brief description per entry
-- [ ] **CV-02**: Education section with degree, institution, and years per entry
-- [ ] **CV-03**: Skills section listing languages, tools, and frameworks as a flat list (no progress bars)
-- [ ] **CV-04**: Contact section with email, LinkedIn, and GitHub links
+- [x] **CV-01**: Work experience section with role, company, dates, and brief description per entry
+- [x] **CV-02**: Education section with degree, institution, and years per entry
+- [x] **CV-03**: Skills section listing languages, tools, and frameworks as a flat list (no progress bars)
+- [x] **CV-04**: Contact section with email, LinkedIn, and GitHub links
 
 ### Projects
 
@@ -26,8 +26,8 @@
 - [x] **INFRA-01**: Single scrolling page with a sticky/fixed header containing anchor nav links to each section
 - [x] **INFRA-02**: Fully responsive layout — usable on mobile (320px+) and desktop (1440px)
 - [x] **INFRA-03**: OpenGraph meta tags set for accurate social sharing preview (title, description, image)
-- [ ] **INFRA-04**: Downloadable CV PDF linked from the site (user provides the PDF file)
-- [ ] **INFRA-05**: Subtle scroll-reveal animations on section entry (fade/slide, respects `prefers-reduced-motion`)
+- [x] **INFRA-04**: Downloadable CV PDF linked from the site (user provides the PDF file)
+- [x] **INFRA-05**: Subtle scroll-reveal animations on section entry (fade/slide, respects `prefers-reduced-motion`)
 - [x] **INFRA-06**: Next.js static export (`output: 'export'`) producing a deployable `out/` directory
 - [ ] **INFRA-07**: GitHub Actions workflow with daily cron trigger: rebuilds and deploys to `axelw.github.io`
 
@@ -59,17 +59,17 @@
 | HERO-01 | Phase 2 | Complete |
 | HERO-02 | Phase 2 | Complete |
 | HERO-03 | Phase 2 | Complete |
-| CV-01 | Phase 2 | Pending |
-| CV-02 | Phase 2 | Pending |
-| CV-03 | Phase 2 | Pending |
-| CV-04 | Phase 2 | Pending |
+| CV-01 | Phase 2 | Complete |
+| CV-02 | Phase 2 | Complete |
+| CV-03 | Phase 2 | Complete |
+| CV-04 | Phase 2 | Complete |
 | PROJ-01 | Phase 3 | Pending |
 | PROJ-02 | Phase 3 | Pending |
 | PROJ-03 | Phase 3 | Pending |
 | INFRA-01 | Phase 2 | Complete |
 | INFRA-02 | Phase 2 | Complete |
 | INFRA-03 | Phase 2 | Complete |
-| INFRA-04 | Phase 2 | Pending |
-| INFRA-05 | Phase 2 | Pending |
+| INFRA-04 | Phase 2 | Complete |
+| INFRA-05 | Phase 2 | Complete |
 | INFRA-06 | Phase 1 | Complete |
 | INFRA-07 | Phase 4 | Pending |
