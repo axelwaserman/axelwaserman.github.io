@@ -14,4 +14,14 @@
   /* Font family tokens — values overridden at runtime by next/font CSS variable injection (D-04) */
   --font-body: Sora, system-ui, sans-serif;
   --font-heading: 'Instrument Serif', Georgia, serif;
+
+  /* Spacing — section-level vertical padding (D-12) */
+  --space-section: clamp(4rem, 3rem + 5vw, 10rem);
+
+  /* Radius */
+  --radius-card: 0.75rem;
+
+  /* Animation */
+  --duration-reveal: 400ms;
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
 }
