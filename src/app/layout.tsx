@@ -19,6 +19,27 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   title: 'Axel W — Software Engineer',
   description: 'Software engineer — portfolio and CV',
+  metadataBase: new URL('https://axelw.github.io'),
+  openGraph: {
+    title: 'Axel W — Software Engineer',
+    description: 'Software engineer — portfolio and CV',
+    url: 'https://axelw.github.io',
+    siteName: 'Axel W',
+    type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Axel W — Software Engineer',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Axel W — Software Engineer',
+    description: 'Software engineer — portfolio and CV',
+  },
 }
 
 export default function RootLayout({
