@@ -24,7 +24,7 @@
 ### Infrastructure
 
 - [ ] **INFRA-01**: Single scrolling page with a sticky/fixed header containing anchor nav links to each section
-- [ ] **INFRA-02**: Fully responsive layout — usable on mobile (320px+) and desktop (1440px)
+- [x] **INFRA-02**: Fully responsive layout — usable on mobile (320px+) and desktop (1440px)
 - [ ] **INFRA-03**: OpenGraph meta tags set for accurate social sharing preview (title, description, image)
 - [ ] **INFRA-04**: Downloadable CV PDF linked from the site (user provides the PDF file)
 - [ ] **INFRA-05**: Subtle scroll-reveal animations on section entry (fade/slide, respects `prefers-reduced-motion`)
@@ -67,7 +67,7 @@
 | PROJ-02 | Phase 3 | Pending |
 | PROJ-03 | Phase 3 | Pending |
 | INFRA-01 | Phase 2 | Pending |
-| INFRA-02 | Phase 2 | Pending |
+| INFRA-02 | Phase 2 | Complete |
 | INFRA-03 | Phase 2 | Pending |
 | INFRA-04 | Phase 2 | Pending |
 | INFRA-05 | Phase 2 | Pending |

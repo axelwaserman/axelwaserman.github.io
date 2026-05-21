@@ -59,7 +59,7 @@ Plans:
 Plans:
 **Wave 1**
 
-- [ ] 02-01-PLAN.md — Design token extensions (--space-section, --radius-card, animation tokens) and typed CV data file (cv.ts)
+- [x] 02-01-PLAN.md — Design token extensions (--space-section, --radius-card, animation tokens) and typed CV data file (cv.ts)
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -106,6 +106,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 1/1 | Complete   | 2026-05-18 |
-| 2. Content | 0/3 | Not started | - |
+| 2. Content | 1/3 | In Progress|  |
 | 3. Projects | 0/TBD | Not started | - |
 | 4. Deploy | 0/TBD | Not started | - |
