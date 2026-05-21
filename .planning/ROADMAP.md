@@ -14,7 +14,7 @@ Four phases, dependency-ordered: the build configuration and design system come 
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Project scaffold, static export config, design tokens, and HTML shell (completed 2026-05-18)
-- [ ] **Phase 2: Content** - All static sections (Hero, CV, About, Contact) with layout, navigation, and responsiveness
+- [x] **Phase 2: Content** - All static sections (Hero, CV, About, Contact) with layout, navigation, and responsiveness (completed 2026-05-21)
 - [ ] **Phase 3: Projects** - GitHub API data layer and projects section wired end-to-end
 - [ ] **Phase 4: Deploy** - GitHub Actions workflow with daily cron delivering the live site
 
@@ -67,7 +67,7 @@ Plans:
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 02-03-PLAN.md — CV sections (Work, Education, Skills), Contact section, FadeUp scroll-reveal, page wiring
+- [x] 02-03-PLAN.md — CV sections (Work, Education, Skills), Contact section, FadeUp scroll-reveal, page wiring
 
 ### Phase 3: Projects
 
@@ -106,6 +106,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 1/1 | Complete   | 2026-05-18 |
-| 2. Content | 2/3 | In Progress|  |
+| 2. Content | 3/3 | Complete   | 2026-05-21 |
 | 3. Projects | 0/TBD | Not started | - |
 | 4. Deploy | 0/TBD | Not started | - |
