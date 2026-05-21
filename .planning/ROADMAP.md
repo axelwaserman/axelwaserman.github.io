@@ -63,7 +63,7 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 02-02-PLAN.md — OpenGraph metadata, Header (sticky nav, scroll-state), Hero section (name, bio, CTAs)
+- [x] 02-02-PLAN.md — OpenGraph metadata, Header (sticky nav, scroll-state), Hero section (name, bio, CTAs)
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
@@ -106,6 +106,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 1/1 | Complete   | 2026-05-18 |
-| 2. Content | 1/3 | In Progress|  |
+| 2. Content | 2/3 | In Progress|  |
 | 3. Projects | 0/TBD | Not started | - |
 | 4. Deploy | 0/TBD | Not started | - |

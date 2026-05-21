@@ -4,9 +4,9 @@
 
 ### Hero
 
-- [ ] **HERO-01**: Page shows user's name and title/tagline on load
-- [ ] **HERO-02**: Hero section includes a 1-2 sentence personal bio
-- [ ] **HERO-03**: Hero section includes CTA links to GitHub, LinkedIn, email, and CV download
+- [x] **HERO-01**: Page shows user's name and title/tagline on load
+- [x] **HERO-02**: Hero section includes a 1-2 sentence personal bio
+- [x] **HERO-03**: Hero section includes CTA links to GitHub, LinkedIn, email, and CV download
 
 ### CV
 
@@ -23,9 +23,9 @@
 
 ### Infrastructure
 
-- [ ] **INFRA-01**: Single scrolling page with a sticky/fixed header containing anchor nav links to each section
+- [x] **INFRA-01**: Single scrolling page with a sticky/fixed header containing anchor nav links to each section
 - [x] **INFRA-02**: Fully responsive layout — usable on mobile (320px+) and desktop (1440px)
-- [ ] **INFRA-03**: OpenGraph meta tags set for accurate social sharing preview (title, description, image)
+- [x] **INFRA-03**: OpenGraph meta tags set for accurate social sharing preview (title, description, image)
 - [ ] **INFRA-04**: Downloadable CV PDF linked from the site (user provides the PDF file)
 - [ ] **INFRA-05**: Subtle scroll-reveal animations on section entry (fade/slide, respects `prefers-reduced-motion`)
 - [x] **INFRA-06**: Next.js static export (`output: 'export'`) producing a deployable `out/` directory
@@ -56,9 +56,9 @@
 
 | REQ-ID | Phase | Status |
 |--------|-------|--------|
-| HERO-01 | Phase 2 | Pending |
-| HERO-02 | Phase 2 | Pending |
-| HERO-03 | Phase 2 | Pending |
+| HERO-01 | Phase 2 | Complete |
+| HERO-02 | Phase 2 | Complete |
+| HERO-03 | Phase 2 | Complete |
 | CV-01 | Phase 2 | Pending |
 | CV-02 | Phase 2 | Pending |
 | CV-03 | Phase 2 | Pending |
@@ -66,9 +66,9 @@
 | PROJ-01 | Phase 3 | Pending |
 | PROJ-02 | Phase 3 | Pending |
 | PROJ-03 | Phase 3 | Pending |
-| INFRA-01 | Phase 2 | Pending |
+| INFRA-01 | Phase 2 | Complete |
 | INFRA-02 | Phase 2 | Complete |
-| INFRA-03 | Phase 2 | Pending |
+| INFRA-03 | Phase 2 | Complete |
 | INFRA-04 | Phase 2 | Pending |
 | INFRA-05 | Phase 2 | Pending |
 | INFRA-06 | Phase 1 | Complete |

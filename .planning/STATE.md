@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 2 UI-SPEC approved
-last_updated: "2026-05-21T12:51:09.316Z"
+stopped_at: Completed 02-02-PLAN.md
+last_updated: "2026-05-21T12:55:28.389Z"
 last_activity: 2026-05-21
 progress:
   total_phases: 4
   completed_phases: 1
   total_plans: 4
-  completed_plans: 2
+  completed_plans: 3
   percent: 25
 ---
 
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-05-17)
 ## Current Position
 
 Phase: 02 (content) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 Status: Ready to execute
 Last activity: 2026-05-21
 
-Progress: [█████░░░░░] 50%
+Progress: [████████░░] 75%
 
 ## Performance Metrics
 
@@ -52,6 +52,7 @@ Progress: [█████░░░░░] 50%
 - Trend: —
 
 *Updated after each plan completion*
+| Phase 02-content P02 | 8 | 3 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,9 @@ Recent decisions affecting current work:
 - 02-01: Appended new tokens inside existing @theme block (not a second block) — Tailwind v4 processes only one @theme per file
 - 02-01: CV data file uses named exports only (no default export) — consumed separately by Hero, CV, and Contact components
 - 02-01: All CV content is placeholder text per D-08; must be replaced before launch
+- 02-02: Header uses sticky positioning (not fixed) — element stays in document flow, avoids content overlap
+- 02-02: Hero is a Server Component — build-time data import from cv.ts, zero client JS
+- 02-02: metadataBase required for og:image to resolve as absolute URL in Next.js static export
 
 ### Pending Todos
 
@@ -88,6 +92,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-05-21T12:51:21Z
+Last session: 2026-05-21T12:55:28.384Z
 Stopped at: Completed 02-01-PLAN.md
-Resume file: .planning/phases/02-content/02-02-PLAN.md
+Resume file: None
