@@ -1,7 +1,8 @@
 ---
 phase: 2
 slug: content
-status: draft
+status: approved
+reviewed_at: 2026-05-21
 shadcn_initialized: false
 preset: none
 created: 2026-05-21
