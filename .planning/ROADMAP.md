@@ -45,8 +45,13 @@ Plans:
   3. Visitor can read work experience, education, and skills without seeing progress bars anywhere
   4. Visitor can click email, LinkedIn, GitHub, and CV download links from both the hero and contact sections
   5. Layout is usable and overflow-free at 320px mobile and 1440px desktop; scroll-reveal animations respect `prefers-reduced-motion`
-**Plans**: TBD
+**Plans**: 3 plans
 **UI hint**: yes
+
+Plans:
+- [ ] 02-01-PLAN.md — Design token extensions (--space-section, --radius-card, animation tokens) and typed CV data file (cv.ts)
+- [ ] 02-02-PLAN.md — OpenGraph metadata, Header (sticky nav, scroll-state), Hero section (name, bio, CTAs)
+- [ ] 02-03-PLAN.md — CV sections (Work, Education, Skills), Contact section, FadeUp scroll-reveal, page wiring
 
 ### Phase 3: Projects
 **Goal**: The projects section is populated with Axel's public GitHub repos fetched at build time — each entry shows name, description, and a repo link; archived repos are excluded
@@ -79,6 +84,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 1/1 | Complete   | 2026-05-18 |
-| 2. Content | 0/TBD | Not started | - |
+| 2. Content | 0/3 | Not started | - |
 | 3. Projects | 0/TBD | Not started | - |
 | 4. Deploy | 0/TBD | Not started | - |
