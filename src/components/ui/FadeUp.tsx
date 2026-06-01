@@ -14,9 +14,14 @@ export default function FadeUp({ children, className }: FadeUpProps) {
 
   useEffect(() => {
     const el = ref.current
-    if (!el || reduced) return
+    if (!el) return
 
-    // Set initial state inside useEffect to avoid FOUC (flash of un-styled content)
+    if (reduced) {
+      el.style.opacity = '1'
+      el.style.transform = 'none'
+      return
+    }
+
     el.style.opacity = '0'
     el.style.transform = 'translateY(16px)'
 
