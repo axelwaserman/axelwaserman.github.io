@@ -1,19 +1,22 @@
 import type { Project } from '@/data/projects'
+import { formatRelativeDate } from '@/lib/date'
 
 interface ProjectCardProps {
   project: Project
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const relative = formatRelativeDate(project.pushedAt)
+
   return (
-    <article className="p-6 rounded-[var(--radius-card)] border border-[var(--color-muted)]/20">
-      <h3 className="text-[length:var(--text-body)] font-semibold mb-1">{project.name}</h3>
-      {(project.language !== null || project.pushedAt !== null) && (
+    <article className="group p-6 rounded-[var(--radius-card)] border border-[var(--color-muted)]/20 transition-colors duration-200 ease-out hover:border-[var(--color-accent)]/40">
+      <h3 className="text-[length:var(--text-body)] font-semibold mb-1 transition-colors duration-200 ease-out group-hover:text-[var(--color-accent)]">{project.name}</h3>
+      {(project.language || relative) && (
         <p className="text-[length:var(--text-ui)] text-[var(--color-muted)] mb-3">
           {project.language}
-          {project.language && project.pushedAt && ' · '}
-          {project.pushedAt && (
-            <time dateTime={project.pushedAt}>{project.pushedAt.slice(0, 10)}</time>
+          {project.language && relative && ' · '}
+          {relative && project.pushedAt && (
+            <time dateTime={project.pushedAt}>{relative}</time>
           )}
         </p>
       )}

@@ -1,5 +1,6 @@
 import { fetchProjects } from '@/lib/projects'
 import ProjectCard from './ProjectCard'
+import ProjectsEmptyState from './ProjectsEmptyState'
 
 export default async function Projects() {
   const projects = await fetchProjects()
@@ -19,13 +20,17 @@ export default async function Projects() {
       >
         Selected work on GitHub
       </h2>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {projects.map((p) => (
-          <li key={p.repoUrl}>
-            <ProjectCard project={p} />
-          </li>
-        ))}
-      </ul>
+      {projects.length === 0 ? (
+        <ProjectsEmptyState />
+      ) : (
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {projects.map((p) => (
+            <li key={p.repoUrl}>
+              <ProjectCard project={p} />
+            </li>
+          ))}
+        </ul>
+      )}
     </section>
   )
 }
