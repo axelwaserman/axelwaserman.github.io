@@ -82,7 +82,21 @@ Plans:
   3. Project cards with a `homepage` field show a live demo link; cards without one do not
   4. Archived repos do not appear in the projects list
 
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+
+**Wave 1**
+
+- [ ] 03-01-PLAN.md — Project type, build-time GitHub fetcher, ProjectCard + Projects Server Components, page wiring (vertical slice)
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [ ] 03-02-PLAN.md — Committed projects.json fallback + try/catch resilience in fetchProjects (D-06)
+
+**Wave 3** *(blocked on Wave 2 completion)*
+
+- [ ] 03-03-PLAN.md — formatRelativeDate utility, ProjectsEmptyState, UI-SPEC polish (hover/focus states, relative date in meta), Playwright UAT spec
 
 ### Phase 4: Deploy
 
@@ -107,5 +121,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation | 1/1 | Complete   | 2026-05-18 |
 | 2. Content | 3/3 | Complete   | 2026-05-21 |
-| 3. Projects | 0/TBD | Not started | - |
+| 3. Projects | 0/3 | Not started | - |
 | 4. Deploy | 0/TBD | Not started | - |
