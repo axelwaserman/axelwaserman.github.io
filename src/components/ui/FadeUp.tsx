@@ -42,7 +42,7 @@ export default function FadeUp({ children, className }: FadeUpProps) {
   }, [reduced])
 
   return (
-    <div ref={ref} className={className}>
+    <div ref={ref} data-fadein className={className}>
       {children}
     </div>
   )
