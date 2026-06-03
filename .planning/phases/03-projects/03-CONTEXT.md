@@ -30,7 +30,7 @@ Fetch Axel's public GitHub repos at build time via the GitHub REST API and rende
 - **D-08:** Star count is deliberately **excluded** — the user chose not to include it.
 
 ### Animation (deferred)
-- **D-09:** The full-page background geometric/mandala animation is **out of scope for Phase 3**. Noted as a deferred Phase 3b idea.
+- **D-09 [deferred]:** The full-page background geometric/mandala animation is **out of scope for Phase 3**. Noted as a deferred Phase 3b idea.
 
 ### Claude's Discretion
 - Relative date formatting approach (e.g. `Intl.RelativeTimeFormat` vs a lightweight utility vs the `date-fns` package)

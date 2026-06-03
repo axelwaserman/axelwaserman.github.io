@@ -1,0 +1,42 @@
+[
+  {
+    "name": "axelw.github.io",
+    "description": "Personal website — single-page CV and GitHub projects, statically exported via Next.js 16.",
+    "language": "TypeScript",
+    "pushedAt": "2026-06-02T00:00:00Z",
+    "repoUrl": "https://github.com/axelw/axelw.github.io",
+    "homepage": "https://axelw.github.io"
+  },
+  {
+    "name": "node-sublime-build",
+    "description": null,
+    "language": "Shell",
+    "pushedAt": "2014-09-15T20:35:50Z",
+    "repoUrl": "https://github.com/axelw/node-sublime-build",
+    "homepage": null
+  },
+  {
+    "name": "gun",
+    "description": "Show files not committed to git",
+    "language": "Shell",
+    "pushedAt": "2014-08-31T03:27:48Z",
+    "repoUrl": "https://github.com/axelw/gun",
+    "homepage": null
+  },
+  {
+    "name": "project-template",
+    "description": "Backend and frontend. Based on node, express and mysql, and backbone and jQuery.",
+    "language": "JavaScript",
+    "pushedAt": "2013-07-24T21:05:59Z",
+    "repoUrl": "https://github.com/axelw/project-template",
+    "homepage": null
+  },
+  {
+    "name": "project-template-support",
+    "description": "Clones and updates project-template according to user provided information",
+    "language": "JavaScript",
+    "pushedAt": "2013-07-24T21:02:24Z",
+    "repoUrl": "https://github.com/axelw/project-template-support",
+    "homepage": null
+  }
+]
