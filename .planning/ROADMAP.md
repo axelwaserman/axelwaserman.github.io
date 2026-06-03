@@ -110,7 +110,21 @@ Plans:
   2. A daily cron job (with `workflow_dispatch` fallback) rebuilds and redeploys the site automatically
   3. The workflow uses `actions/configure-pages@v5` so no manual `basePath` configuration is needed
 
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+
+**Wave 1**
+
+- [ ] 04-01-PLAN.md — Pages-enabled deploy workflow on push to main (configure-pages@v5, two-job build/deploy, GITHUB_TOKEN env)
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [ ] 04-02-PLAN.md — Add daily cron schedule + workflow_dispatch trigger to deploy.yml
+
+**Wave 3** *(blocked on Wave 2 completion)*
+
+- [ ] 04-03-PLAN.md — Add actions/cache@v4 for .next/cache to speed up incremental rebuilds
 
 ## Progress
 
@@ -122,4 +136,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Foundation | 1/1 | Complete   | 2026-05-18 |
 | 2. Content | 3/3 | Complete   | 2026-05-21 |
 | 3. Projects | 0/3 | Not started | - |
-| 4. Deploy | 0/TBD | Not started | - |
+| 4. Deploy | 0/3 | Not started | - |
