@@ -2,7 +2,7 @@
 
 ## Overview
 
-Four phases, dependency-ordered: the build configuration and design system come first so every subsequent phase can build cleanly. Static content sections ship next, producing a visually complete site before any API work. The GitHub data layer wires in after the static shell is proven. Deployment goes last — deploy a confirmed working build, not a guess.
+Five phases, dependency-ordered: the build configuration and design system come first so every subsequent phase can build cleanly. Static content sections ship next, producing a visually complete site before any API work. The GitHub data layer wires in after the static shell is proven. Deployment goes after that — deploy a confirmed working build, not a guess. Phase 5 closes remaining polish items surfaced in production: favicon, decorative pattern, real CV data, and switching from dummy to live GitHub project data.
 
 ## Phases
 
@@ -15,8 +15,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Project scaffold, static export config, design tokens, and HTML shell (completed 2026-05-18)
 - [x] **Phase 2: Content** - All static sections (Hero, CV, About, Contact) with layout, navigation, and responsiveness (completed 2026-05-21)
-- [ ] **Phase 3: Projects** - GitHub API data layer and projects section wired end-to-end
+- [x] **Phase 3: Projects** - GitHub API data layer and projects section wired end-to-end (completed 2026-05-30, currently rendering fallback/dummy data — see Phase 5)
 - [x] **Phase 4: Deploy** - GitHub Actions workflow with daily cron delivering the live site (completed 2026-06-03)
+- [ ] **Phase 5: Polish** - Favicon, decorative mandala pattern, real CV content + hyperlinks, real GitHub projects from the API (not the fallback)
 
 ## Phase Details
 
@@ -126,14 +127,30 @@ Plans:
 
 - [x] 04-03-PLAN.md — Add actions/cache@v4 for .next/cache to speed up incremental rebuilds
 
+### Phase 5: Polish
+
+**Goal**: A first-time visitor lands on https://axelwaserman.github.io/, sees a favicon in the browser tab, encounters a deliberate decorative mandala pattern, reads Axel's real CV (real names, dates, links — not placeholder text), and sees Axel's actual public GitHub repos in the projects section (fetched live from the API at build time, not the committed fallback)
+**Mode:** mvp
+**Depends on**: Phase 4
+**Requirements**: (post-deploy polish — no requirement IDs; goal-derived)
+**Success Criteria** (what must be TRUE):
+
+  1. Browser tab for axelwaserman.github.io shows a favicon (no /favicon.ico 404 in DevTools console)
+  2. The page features a deliberate mandala-style decorative pattern integrated into the design (location and styling chosen during phase planning — not a stock template element)
+  3. CV section content (work experience, education, skills, contact links) reflects Axel's real history with working email, LinkedIn, and GitHub URLs — no Lorem Ipsum, placeholder names, or example.com links
+  4. Projects section renders Axel's real public repos via the GitHub API at build time (not the projects.json fallback). Verified by inspecting the deployed HTML for repo names that match `gh repo list axelwaserman --visibility public --no-archived`
+
+**Plans**: TBD (decompose during /gsd:plan-phase 5)
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 1/1 | Complete   | 2026-05-18 |
 | 2. Content | 3/3 | Complete   | 2026-05-21 |
-| 3. Projects | 0/3 | Not started | - |
+| 3. Projects | 3/3 | Complete   | 2026-05-30 |
 | 4. Deploy | 3/3 | Complete   | 2026-06-03 |
+| 5. Polish | 0/? | Not started | - |
