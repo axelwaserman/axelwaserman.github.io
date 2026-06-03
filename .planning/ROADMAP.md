@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Foundation** - Project scaffold, static export config, design tokens, and HTML shell (completed 2026-05-18)
 - [x] **Phase 2: Content** - All static sections (Hero, CV, About, Contact) with layout, navigation, and responsiveness (completed 2026-05-21)
 - [ ] **Phase 3: Projects** - GitHub API data layer and projects section wired end-to-end
-- [ ] **Phase 4: Deploy** - GitHub Actions workflow with daily cron delivering the live site
+- [x] **Phase 4: Deploy** - GitHub Actions workflow with daily cron delivering the live site (completed 2026-06-03)
 
 ## Phase Details
 
@@ -116,15 +116,15 @@ Plans:
 
 **Wave 1**
 
-- [ ] 04-01-PLAN.md — Pages-enabled deploy workflow on push to main (configure-pages@v5, two-job build/deploy, GITHUB_TOKEN env)
+- [x] 04-01-PLAN.md — Pages-enabled deploy workflow on push to main (configure-pages@v5, two-job build/deploy, GITHUB_TOKEN env)
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 04-02-PLAN.md — Add daily cron schedule + workflow_dispatch trigger to deploy.yml
+- [x] 04-02-PLAN.md — Add daily cron schedule + workflow_dispatch trigger to deploy.yml
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 04-03-PLAN.md — Add actions/cache@v4 for .next/cache to speed up incremental rebuilds
+- [x] 04-03-PLAN.md — Add actions/cache@v4 for .next/cache to speed up incremental rebuilds
 
 ## Progress
 
@@ -136,4 +136,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Foundation | 1/1 | Complete   | 2026-05-18 |
 | 2. Content | 3/3 | Complete   | 2026-05-21 |
 | 3. Projects | 0/3 | Not started | - |
-| 4. Deploy | 0/3 | Not started | - |
+| 4. Deploy | 3/3 | Complete   | 2026-06-03 |
