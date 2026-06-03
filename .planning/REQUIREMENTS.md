@@ -17,9 +17,9 @@
 
 ### Projects
 
-- [ ] **PROJ-01**: Projects section fetches public GitHub repos via the GitHub REST API at build time
-- [ ] **PROJ-02**: Each project entry displays the repo name and description
-- [ ] **PROJ-03**: Each project entry links to a live demo if the repo's `homepage` field is set
+- [x] **PROJ-01**: Projects section fetches public GitHub repos via the GitHub REST API at build time
+- [x] **PROJ-02**: Each project entry displays the repo name and description
+- [x] **PROJ-03**: Each project entry links to a live demo if the repo's `homepage` field is set
 
 ### Infrastructure
 
@@ -63,9 +63,9 @@
 | CV-02 | Phase 2 | Complete |
 | CV-03 | Phase 2 | Complete |
 | CV-04 | Phase 2 | Complete |
-| PROJ-01 | Phase 3 | Pending |
-| PROJ-02 | Phase 3 | Pending |
-| PROJ-03 | Phase 3 | Pending |
+| PROJ-01 | Phase 3 | Complete |
+| PROJ-02 | Phase 3 | Complete |
+| PROJ-03 | Phase 3 | Complete |
 | INFRA-01 | Phase 2 | Complete |
 | INFRA-02 | Phase 2 | Complete |
 | INFRA-03 | Phase 2 | Complete |
