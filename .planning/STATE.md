@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: verifying
-stopped_at: Completed 02-03-PLAN.md
-last_updated: "2026-05-21T12:59:54.786Z"
-last_activity: 2026-05-21
+status: executing
+stopped_at: Phase 3 verified
+last_updated: "2026-06-03T00:00:00.000Z"
+last_activity: 2026-06-03 -- Phase 03 verified, PR opened
 progress:
   total_phases: 4
-  completed_phases: 2
-  total_plans: 4
-  completed_plans: 4
-  percent: 50
+  completed_phases: 3
+  total_plans: 7
+  completed_plans: 7
+  percent: 75
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-05-17)
 
 **Core value:** A recruiter, collaborator, or curious stranger can land on the site, understand who Axel is, and find his work within 30 seconds — no friction, no staleness.
-**Current focus:** Phase 02 — content
+**Current focus:** Phase 04 — deploy (next)
 
 ## Current Position
 
-Phase: 02 (content) — EXECUTING
-Plan: 3 of 3
-Status: Phase complete — ready for verification
-Last activity: 2026-05-21
+Phase: 03 (projects) — VERIFIED ✓ (PR #1 open for human merge)
+Plan: 3 of 3 complete
+Status: Awaiting Phase 03 PR merge, then begin Phase 04
+Last activity: 2026-06-03 -- Phase 03 verified, PR #1 opened
 
-Progress: [██████████] 100%
+Progress: [████████░░] 75%
 
 ## Performance Metrics
 
@@ -77,6 +77,11 @@ Recent decisions affecting current work:
 - [Phase ?]: FadeUp initial opacity/transform set inside useEffect to avoid FOUC — not in JSX render
 - [Phase ?]: Hero is not wrapped in FadeUp — above-the-fold element must be immediately visible
 - [Phase ?]: useReducedMotion defaults to false (no motion assumed on server) — correct SSR-safe behavior
+- 03: Build-time GitHub fetch with try/catch fallback to committed `src/data/projects.json` — never breaks the build
+- 03: `import 'server-only'` first line of `src/lib/projects.ts` — prevents token leakage to client bundle
+- 03: URL protocol allowlist (`isHttpUrl`) on `homepage` field — closes `javascript:` URL hole
+- 03: Link-header pagination with MAX_PAGES=5 cap — avoids unbounded API loops
+- 03: PR-after-validation workflow established — push branch + open PR for human merge after subagent verification
 
 ### Pending Todos
 
@@ -85,6 +90,9 @@ None yet.
 ### Blockers/Concerns
 
 - Real CV content (work experience, bio, skills) will be placeholders in Phase 2; must be replaced before launch
+- 03-REVIEW.md surfaced 13 advisory findings (1 Critical CR-01, 6 Warnings, 6 Info) — non-blocking but recommend triage before merge or in Phase 4
+- playwright.config.ts baseURL changed to port 3001 (Wave 3 deviation) — review for CI portability
+- 1 PR open awaiting human merge: https://github.com/axelwaserman/axelwaserman.github.io/pull/1
 
 ## Deferred Items
 
@@ -96,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-05-21T12:59:54.780Z
-Stopped at: Completed 02-03-PLAN.md
-Resume file: None
+Last session: 2026-06-03T00:00:00.000Z
+Stopped at: Phase 3 verified, PR #1 opened
+Resume file: .planning/phases/03-projects/03-VERIFICATION.md

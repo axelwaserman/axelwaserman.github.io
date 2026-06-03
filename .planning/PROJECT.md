@@ -12,16 +12,18 @@ A recruiter, collaborator, or curious stranger can land on the site, understand 
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] **PROJ-01** (Phase 3, verified 2026-06-03): Projects section fetches public GitHub repos via REST API at build time
+- [x] **PROJ-02** (Phase 3, verified 2026-06-03): Each project entry displays repo name and description
+- [x] **PROJ-03** (Phase 3, verified 2026-06-03): Each project entry links to a live demo if `homepage` field is set
 
 ### Active
 
 - [ ] Single scrolling page with sections: hero/intro, about/CV, projects, contact
 - [ ] CV section with work experience, education, skills, and contact/social links
-- [ ] GitHub projects list: fetched from GitHub API, rebuilt daily via GH Actions
-- [ ] Each project entry shows name, description, primary language, and star count
+- [ ] GitHub projects list: fetched from GitHub API, rebuilt daily via GH Actions (Phase 3 shipped build-time fetch; daily rebuild lands in Phase 4)
+- [ ] Each project entry shows name, description, primary language (star count deliberately excluded per D-08)
 - [ ] Static export for GitHub Pages hosting (Next.js `output: 'export'`)
-- [ ] Automated daily rebuild and deploy via GitHub Actions
+- [ ] Automated daily rebuild and deploy via GitHub Actions (Phase 4)
 - [ ] Minimal light design: white/near-white background, black text, rounded corners, clean typography
 
 ### Out of Scope
@@ -54,8 +56,10 @@ A recruiter, collaborator, or curious stranger can land on the site, understand 
 |----------|-----------|---------|
 | Next.js over Astro | Learning React/TS is a primary goal alongside shipping | — Pending |
 | Static export for GH Pages | GitHub Pages is free, zero maintenance hosting | — Pending |
-| Build-time GH API fetch | Avoids client-side rate limiting and API key exposure | — Pending |
+| Build-time GH API fetch | Avoids client-side rate limiting and API key exposure | — Validated (Phase 3) |
 | Single page layout | Simpler, faster to build, better for personal sites | — Pending |
+| Build-time fetch with committed JSON fallback | Build never breaks if GitHub is unreachable; stale data > broken site | — Validated (Phase 3) |
+| `import 'server-only'` on fetcher | Prevent any future accidental token leak to client bundle | — Validated (Phase 3) |
 
 ## Evolution
 
@@ -75,4 +79,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-17 after initialization*
+*Last updated: 2026-06-03 after Phase 3 verification*
