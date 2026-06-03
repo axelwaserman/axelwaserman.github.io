@@ -15,15 +15,16 @@ A recruiter, collaborator, or curious stranger can land on the site, understand 
 - [x] **PROJ-01** (Phase 3, verified 2026-06-03): Projects section fetches public GitHub repos via REST API at build time
 - [x] **PROJ-02** (Phase 3, verified 2026-06-03): Each project entry displays repo name and description
 - [x] **PROJ-03** (Phase 3, verified 2026-06-03): Each project entry links to a live demo if `homepage` field is set
+- [x] **INFRA-07** (Phase 4, mechanically verified 2026-06-03; live UAT pending post-merge): GitHub Actions workflow with push-to-main, daily cron, and `workflow_dispatch` triggers; deploys to GitHub Pages via `actions/configure-pages@v5` + `actions/deploy-pages@v5`
 
 ### Active
 
 - [ ] Single scrolling page with sections: hero/intro, about/CV, projects, contact
 - [ ] CV section with work experience, education, skills, and contact/social links
-- [ ] GitHub projects list: fetched from GitHub API, rebuilt daily via GH Actions (Phase 3 shipped build-time fetch; daily rebuild lands in Phase 4)
+- [x] GitHub projects list: fetched from GitHub API, rebuilt daily via GH Actions (Phase 3 shipped build-time fetch; Phase 4 shipped daily cron + dispatch)
 - [ ] Each project entry shows name, description, primary language (star count deliberately excluded per D-08)
-- [ ] Static export for GitHub Pages hosting (Next.js `output: 'export'`)
-- [ ] Automated daily rebuild and deploy via GitHub Actions (Phase 4)
+- [x] Static export for GitHub Pages hosting (Next.js `output: 'export'`) — Phase 1 set the config; Phase 4 wired the deploy
+- [x] Automated daily rebuild and deploy via GitHub Actions (Phase 4 — live URL pending one-time Pages enablement)
 - [ ] Minimal light design: white/near-white background, black text, rounded corners, clean typography
 
 ### Out of Scope
@@ -55,11 +56,14 @@ A recruiter, collaborator, or curious stranger can land on the site, understand 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
 | Next.js over Astro | Learning React/TS is a primary goal alongside shipping | — Pending |
-| Static export for GH Pages | GitHub Pages is free, zero maintenance hosting | — Pending |
+| Static export for GH Pages | GitHub Pages is free, zero maintenance hosting | — Validated (Phase 4) |
 | Build-time GH API fetch | Avoids client-side rate limiting and API key exposure | — Validated (Phase 3) |
 | Single page layout | Simpler, faster to build, better for personal sites | — Pending |
 | Build-time fetch with committed JSON fallback | Build never breaks if GitHub is unreachable; stale data > broken site | — Validated (Phase 3) |
 | `import 'server-only'` on fetcher | Prevent any future accidental token leak to client bundle | — Validated (Phase 3) |
+| Major-pinned action versions (`@v4`, `@v5`, `@v3`) | T-04-01 accepted: blast radius is one static-site rebuild; SHA pinning would balloon Dependabot review cost | — Validated (Phase 4) |
+| User-page repo with no `basePath` | `axelwaserman.github.io` is a user-page repo; `configure-pages@v5` detects topology and emits empty basePath; assets resolve at `/` | — Validated (Phase 4) |
+| `concurrency: pages` + `cancel-in-progress: false` | Pages best practice — never cancel an in-flight publish; partial-deploy avoidance over speed | — Validated (Phase 4) |
 
 ## Evolution
 
@@ -79,4 +83,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-03 after Phase 3 verification*
+*Last updated: 2026-06-03 after Phase 4 completion (deploy workflow shipped; live URL pending one-time GitHub Pages enablement)*
