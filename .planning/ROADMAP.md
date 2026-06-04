@@ -147,10 +147,10 @@ Plans:
 
 **Wave 1** *(parallel-safe; no file overlaps)*
 
-- [ ] 05-01-PLAN.md — Stale username sweep + GITHUB_USERNAME workflow env (D-21, D-23) + metadata title alignment with D-15
-- [ ] 05-02-PLAN.md — CV data extraction from CV.typ + justfile + public/cv.pdf compile (D-10, D-11, D-13–D-16) + email TBD sentinel (D-17 prep)
-- [ ] 05-03-PLAN.md — Favicon via src/app/icon.tsx ImageResponse (D-18, D-19, D-20)
-- [ ] 05-04-PLAN.md — TDD: src/lib/mandala.ts pure utility (generateLines, CURATED_PAIRS, pickRandomPair) (D-03, D-04)
+- [x] 05-01-PLAN.md — Stale username sweep + GITHUB_USERNAME workflow env (D-21, D-23) + metadata title alignment with D-15
+- [x] 05-02-PLAN.md — CV data extraction from CV.typ + justfile + public/cv.pdf compile (D-10, D-11, D-13–D-16) + email TBD sentinel (D-17 prep)
+- [x] 05-03-PLAN.md — Favicon via src/app/icon.tsx ImageResponse (D-18, D-19, D-20)
+- [x] 05-04-PLAN.md — TDD: src/lib/mandala.ts pure utility (generateLines, CURATED_PAIRS, pickRandomPair) (D-03, D-04)
 
 **Wave 2** *(blocked on Wave 1 — file/data dependencies)*
 
