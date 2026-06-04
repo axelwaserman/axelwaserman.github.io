@@ -1,4 +1,4 @@
-# Requirements — Personal Website (axelw.github.io)
+# Requirements — Personal Website (axelwaserman.github.io)
 
 ## v1 Requirements
 
@@ -29,7 +29,7 @@
 - [x] **INFRA-04**: Downloadable CV PDF linked from the site (user provides the PDF file)
 - [x] **INFRA-05**: Subtle scroll-reveal animations on section entry (fade/slide, respects `prefers-reduced-motion`)
 - [x] **INFRA-06**: Next.js static export (`output: 'export'`) producing a deployable `out/` directory
-- [ ] **INFRA-07**: GitHub Actions workflow with daily cron trigger: rebuilds and deploys to `axelw.github.io`
+- [ ] **INFRA-07**: GitHub Actions workflow with daily cron trigger: rebuilds and deploys to `axelwaserman.github.io`
 
 ---
 
