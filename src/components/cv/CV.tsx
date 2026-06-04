@@ -1,56 +1,59 @@
 import { workEntries, educationEntries, skillGroups } from '@/data/cv'
 import WorkEntry from './WorkEntry'
 import EducationEntry from './EducationEntry'
+import SkillGroupList from './SkillGroupList'
+import DownloadCVButton from './DownloadCVButton'
 
 export default function CV() {
   return (
     <section
       id="cv"
       aria-labelledby="cv-heading"
-      className="py-[var(--space-section)] px-6 max-w-4xl scroll-mt-16"
+      className="py-[var(--space-section)] px-6 max-w-3xl mx-auto scroll-mt-16"
     >
-      <h2 id="cv-heading" className="sr-only">CV</h2>
+      <h2 id="cv-heading" className="sr-only">
+        CV
+      </h2>
 
       {/* Work */}
-      <div className="grid grid-cols-1 sm:grid-cols-[20%_1fr] gap-y-8 sm:gap-x-12 mb-20">
-        <div className="text-[length:var(--text-ui)] font-semibold text-[var(--color-muted)] uppercase tracking-[0.08em]">
+      <div className="mb-12">
+        <div className="text-center text-[length:var(--text-ui)] font-semibold text-[var(--color-muted)] uppercase tracking-[0.08em]">
           Work
         </div>
-        <div className="space-y-12">
+        <div className="mt-6 space-y-8">
           {workEntries.map((entry) => (
             <WorkEntry key={`${entry.company}-${entry.dates}`} entry={entry} />
           ))}
         </div>
       </div>
 
+      {/* Download CV (PDF) — secondary CTA between Work and Education (D-12) */}
+      <div className="flex justify-center mt-12 mb-12">
+        <DownloadCVButton />
+      </div>
+
       {/* Education */}
-      <div className="grid grid-cols-1 sm:grid-cols-[20%_1fr] gap-y-8 sm:gap-x-12 mb-20">
-        <div className="text-[length:var(--text-ui)] font-semibold text-[var(--color-muted)] uppercase tracking-[0.08em]">
+      <div className="mb-12">
+        <div className="text-center text-[length:var(--text-ui)] font-semibold text-[var(--color-muted)] uppercase tracking-[0.08em]">
           Education
         </div>
-        <div className="space-y-8">
+        <div className="mt-6 space-y-8">
           {educationEntries.map((entry) => (
-            <EducationEntry key={`${entry.institution}-${entry.years}`} entry={entry} />
+            <EducationEntry
+              key={`${entry.institution}-${entry.years}`}
+              entry={entry}
+            />
           ))}
         </div>
       </div>
 
       {/* Skills */}
-      <div className="grid grid-cols-1 sm:grid-cols-[20%_1fr] gap-y-8 sm:gap-x-12">
-        <div className="text-[length:var(--text-ui)] font-semibold text-[var(--color-muted)] uppercase tracking-[0.08em]">
+      <div className="mb-12">
+        <div className="text-center text-[length:var(--text-ui)] font-semibold text-[var(--color-muted)] uppercase tracking-[0.08em]">
           Skills
         </div>
-        <div className="space-y-4">
-          {skillGroups.map((group) => (
-            <div key={group.category}>
-              <h4 className="font-semibold text-[length:var(--text-body)] text-[var(--color-text)] mb-2">
-                {group.category}
-              </h4>
-              <p className="text-[length:var(--text-ui)] text-[var(--color-text)] max-w-[60ch] leading-[1.5]">
-                {group.items.join(', ')}
-              </p>
-            </div>
-          ))}
+        <div className="mt-6">
+          <SkillGroupList groups={skillGroups} />
         </div>
       </div>
     </section>
