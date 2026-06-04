@@ -6,6 +6,13 @@ export default defineConfig({
   test: {
     passWithNoTests: true,
     // Exclude Playwright E2E specs — they run under @playwright/test, not Vitest.
-    exclude: ['**/node_modules/**', '**/dist/**', '**/.next/**', '**/out/**', 'e2e/**'],
+    exclude: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/.next/**',
+      '**/out/**',
+      '**/e2e/**',
+      '**/.claude/worktrees/**',
+    ],
   },
 })
