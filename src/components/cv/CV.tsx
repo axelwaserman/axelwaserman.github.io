@@ -1,7 +1,6 @@
-import { workEntries, educationEntries, skills } from '@/data/cv'
+import { workEntries, educationEntries, skillGroups } from '@/data/cv'
 import WorkEntry from './WorkEntry'
 import EducationEntry from './EducationEntry'
-import SkillsList from './SkillsList'
 
 export default function CV() {
   return (
@@ -41,7 +40,18 @@ export default function CV() {
         <div className="text-[length:var(--text-ui)] font-semibold text-[var(--color-muted)] uppercase tracking-[0.08em]">
           Skills
         </div>
-        <SkillsList skills={skills} />
+        <div className="space-y-4">
+          {skillGroups.map((group) => (
+            <div key={group.category}>
+              <h4 className="font-semibold text-[length:var(--text-body)] text-[var(--color-text)] mb-2">
+                {group.category}
+              </h4>
+              <p className="text-[length:var(--text-ui)] text-[var(--color-text)] max-w-[60ch] leading-[1.5]">
+                {group.items.join(', ')}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )
