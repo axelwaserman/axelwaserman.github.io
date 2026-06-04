@@ -18,6 +18,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: Projects** - GitHub API data layer and projects section wired end-to-end (completed 2026-05-30, currently rendering fallback/dummy data — see Phase 5)
 - [x] **Phase 4: Deploy** - GitHub Actions workflow with daily cron delivering the live site (completed 2026-06-03)
 - [ ] **Phase 5: Polish** - Favicon, decorative mandala pattern, real CV content + hyperlinks, real GitHub projects from the API (not the fallback)
+- [ ] **Phase 6: Get-in-touch form** - Replace direct contact links (mailto/LinkedIn/GitHub) with a Formspree-backed contact form; keep email visible as plain text + JSON-LD Person markup for ATS / SEO crawlers
 
 ## Phase Details
 
@@ -140,7 +141,42 @@ Plans:
   3. CV section content (work experience, education, skills, contact links) reflects Axel's real history with working email, LinkedIn, and GitHub URLs — no Lorem Ipsum, placeholder names, or example.com links
   4. Projects section renders Axel's real public repos via the GitHub API at build time (not the projects.json fallback). Verified by inspecting the deployed HTML for repo names that match `gh repo list axelwaserman --visibility public --no-archived`
 
-**Plans**: TBD (decompose during /gsd:plan-phase 5)
+**Plans**: 8 plans
+
+Plans:
+
+**Wave 1** *(parallel-safe; no file overlaps)*
+
+- [ ] 05-01-PLAN.md — Stale username sweep + GITHUB_USERNAME workflow env (D-21, D-23) + metadata title alignment with D-15
+- [ ] 05-02-PLAN.md — CV data extraction from CV.typ + justfile + public/cv.pdf compile (D-10, D-11, D-13–D-16) + email TBD sentinel (D-17 prep)
+- [ ] 05-03-PLAN.md — Favicon via src/app/icon.tsx ImageResponse (D-18, D-19, D-20)
+- [ ] 05-04-PLAN.md — TDD: src/lib/mandala.ts pure utility (generateLines, CURATED_PAIRS, pickRandomPair) (D-03, D-04)
+
+**Wave 2** *(blocked on Wave 1 — file/data dependencies)*
+
+- [ ] 05-05-PLAN.md — CV section components: bullets render, SkillGroupList, DownloadCVButton, centered layout (D-02, D-12, D-13, D-16) — depends on 05-02
+- [ ] 05-06-PLAN.md — HeroMandala client component + MandalaSVG + HeroMandalaControls + Hero two-column embed (D-01, D-05–D-09) — depends on 05-01, 05-04
+- [ ] 05-07-PLAN.md — Re-center Projects + Contact, data-driven contact (LinkedIn/GitHub/email) with email visible as plain text per D-17 (D-02, D-17 render) — depends on 05-01, 05-02
+
+**Wave 3** *(phase exit gate)*
+
+- [ ] 05-08-PLAN.md — Refresh src/data/projects.json with live gh REST API fetch (D-24), live-deploy verification of all four Phase 5 Success Criteria + D-17 ATS/SEO email visibility (D-22) — depends on all prior plans
+
+### Phase 6: Get-in-touch form
+
+**Goal**: Visitors initiate contact via a Formspree-backed form embedded on the page that delivers messages to Axel's inbox; direct contact links (mailto / LinkedIn anchor / GitHub anchor) are removed from the contact section in favor of the form, while the email address itself remains visible as plain text and JSON-LD Person markup so ATS crawlers and search engines can still parse it
+**Mode:** mvp
+**Depends on**: Phase 5
+**Requirements**: (post-launch UX — no requirement IDs; goal-derived)
+**Success Criteria** (what must be TRUE):
+
+  1. Contact section renders a working form (name + email + message fields) that submits to a configured Formspree endpoint and delivers an email to axel.waserman@gmail.com
+  2. The plain-text email `axel.waserman@gmail.com` is present in the rendered HTML at least once (for ATS / scraper visibility) AND appears in a JSON-LD Person `<script type="application/ld+json">` block in `<head>`
+  3. Direct contact links (mailto, LinkedIn anchor, GitHub anchor as primary contact channels) are removed from the Contact section; the form is the primary CTA. Hero CTA cluster is updated consistently per the form-first direction.
+  4. Form respects `prefers-reduced-motion`, validates input client-side, and shows a clear success / error state on submission
+
+**Plans**: TBD (decompose during /gsd:plan-phase 6)
+
 
 ## Progress
 
@@ -153,4 +189,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Content | 3/3 | Complete   | 2026-05-21 |
 | 3. Projects | 3/3 | Complete   | 2026-05-30 |
 | 4. Deploy | 3/3 | Complete   | 2026-06-03 |
-| 5. Polish | 0/? | Not started | - |
+| 5. Polish | 0/8 | In progress | - |
+| 6. Get-in-touch form | 0/? | Not started | - |

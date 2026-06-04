@@ -46,7 +46,9 @@ Take the live deploy from "wired up" to "ready to share" by closing four pre-lau
 - **D-17 (contact links — real URLs):**
   - GitHub: `https://github.com/axelwaserman`
   - LinkedIn: `https://www.linkedin.com/in/axel-waserman-9753221a6/`
-  - Email: **`<<TBD: email>>`** — Axel must provide before launch. Planner must surface this as an explicit task in PLAN.md and the implementing agent must NOT invent an address. Until provided, the contact section's email link uses a clearly-marked placeholder (or omits the email row); planner picks the safest UX. **PHASE-5 IS NOT DONE until the email value is real.**
+  - Email: **`axel.waserman@gmail.com`** (resolved 2026-06-04). Used as both the visible plain-text address (for ATS / SEO crawlers) and the `mailto:` href in the Contact section. Hero CTA cluster preserves the four labels per UI-SPEC §Copywriting (GitHub, LinkedIn, Email, Download CV) using the same address. Email lives in `assets/CV.typ` AND surfaces in the rendered HTML so it is discoverable by recruiter scrapers and search engines.
+
+  **Note (deferred to Phase 6):** A future "Get in touch" form (Formspree-backed) will replace direct contact links. Phase 5 ships direct mailto + plain-text email; Phase 6 will introduce the form, remove direct links, and keep email visible in plain text for ATS / SEO + JSON-LD Person markup. See Phase 6 in ROADMAP.md.
 
 ### Favicon (typographic monogram)
 
