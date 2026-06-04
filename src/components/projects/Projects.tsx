@@ -9,14 +9,14 @@ export default async function Projects() {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="py-[var(--space-section)] px-6 max-w-4xl scroll-mt-16"
+      className="py-[var(--space-section)] px-6 max-w-5xl mx-auto scroll-mt-16"
     >
-      <div className="text-[length:var(--text-ui)] font-semibold text-[var(--color-muted)] uppercase tracking-[0.08em] mb-4">
+      <div className="text-[length:var(--text-ui)] font-semibold text-[var(--color-muted)] uppercase tracking-[0.08em] mb-4 text-center">
         Projects
       </div>
       <h2
         id="projects-heading"
-        className="font-[var(--font-heading)] text-[length:var(--text-heading)] mb-8"
+        className="font-[var(--font-heading)] text-[length:var(--text-heading)] mb-8 text-center"
       >
         Selected work on GitHub
       </h2>
