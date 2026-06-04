@@ -160,7 +160,7 @@ Plans:
 
 **Wave 3** *(phase exit gate)*
 
-- [ ] 05-08-PLAN.md — Refresh src/data/projects.json with live gh REST API fetch (D-24), live-deploy verification of all four Phase 5 Success Criteria + D-17 ATS/SEO email visibility (D-22) — depends on all prior plans
+- [x] 05-08-PLAN.md — Refresh src/data/projects.json with live gh REST API fetch (D-24), live-deploy verification of all four Phase 5 Success Criteria + D-17 ATS/SEO email visibility (D-22) — depends on all prior plans
 
 ### Phase 6: Get-in-touch form
 
