@@ -4,7 +4,7 @@ import 'server-only'
 import type { Project } from '@/data/projects'
 import projectsFallback from '@/data/projects.json'
 
-const GITHUB_USERNAME = process.env.GITHUB_USERNAME ?? 'axelw'
+const GITHUB_USERNAME = process.env.GITHUB_USERNAME ?? 'axelwaserman'
 const PER_PAGE = 100
 const MAX_PAGES = 5
 
