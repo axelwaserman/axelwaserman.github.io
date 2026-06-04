@@ -7,7 +7,7 @@ export default function ProjectsEmptyState() {
       <p className="text-[length:var(--text-body)] text-[var(--color-muted)] max-w-[55ch]">
         Check back soon — or look at the source for{' '}
         <a
-          href="https://github.com/axelw/axelw.github.io"
+          href="https://github.com/axelwaserman/axelwaserman.github.io"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[var(--color-text)] underline underline-offset-2 decoration-[var(--color-muted)] hover:decoration-[var(--color-accent)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"

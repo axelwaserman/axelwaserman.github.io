@@ -17,27 +17,27 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: 'Axel W — Software Engineer',
+  title: 'Axel Waserman — Senior Engineering Manager',
   description: 'Software engineer — portfolio and CV',
-  metadataBase: new URL('https://axelw.github.io'),
+  metadataBase: new URL('https://axelwaserman.github.io'),
   openGraph: {
-    title: 'Axel W — Software Engineer',
+    title: 'Axel Waserman — Senior Engineering Manager',
     description: 'Software engineer — portfolio and CV',
-    url: 'https://axelw.github.io',
-    siteName: 'Axel W',
+    url: 'https://axelwaserman.github.io',
+    siteName: 'Axel Waserman',
     type: 'website',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Axel W — Software Engineer',
+        alt: 'Axel Waserman — Senior Engineering Manager',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Axel W — Software Engineer',
+    title: 'Axel Waserman — Senior Engineering Manager',
     description: 'Software engineer — portfolio and CV',
   },
 }

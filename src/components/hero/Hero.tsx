@@ -21,7 +21,7 @@ export default function Hero() {
       </p>
       <div className="flex flex-wrap gap-4">
         <a
-          href="https://github.com/axelw"
+          href="https://github.com/axelwaserman"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[length:var(--text-ui)] text-[var(--color-text)] underline underline-offset-2 decoration-[var(--color-muted)] hover:decoration-[var(--color-accent)] hover:text-[var(--color-accent)] focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2 py-2"
@@ -29,7 +29,7 @@ export default function Hero() {
           GitHub
         </a>
         <a
-          href="https://linkedin.com/in/axelw"
+          href="https://www.linkedin.com/in/axel-waserman-9753221a6/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[length:var(--text-ui)] text-[var(--color-text)] underline underline-offset-2 decoration-[var(--color-muted)] hover:decoration-[var(--color-accent)] hover:text-[var(--color-accent)] focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2 py-2"
@@ -37,7 +37,7 @@ export default function Hero() {
           LinkedIn
         </a>
         <a
-          href="mailto:axel@example.com"
+          href="mailto:axel.waserman@gmail.com"
           className="text-[length:var(--text-ui)] text-[var(--color-text)] underline underline-offset-2 decoration-[var(--color-muted)] hover:decoration-[var(--color-accent)] hover:text-[var(--color-accent)] focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2 py-2"
         >
           Email
