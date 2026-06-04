@@ -154,9 +154,9 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 — file/data dependencies)*
 
-- [ ] 05-05-PLAN.md — CV section components: bullets render, SkillGroupList, DownloadCVButton, centered layout (D-02, D-12, D-13, D-16) — depends on 05-02
-- [ ] 05-06-PLAN.md — HeroMandala client component + MandalaSVG + HeroMandalaControls + Hero two-column embed (D-01, D-05–D-09) — depends on 05-01, 05-04
-- [ ] 05-07-PLAN.md — Re-center Projects + Contact, data-driven contact (LinkedIn/GitHub/email) with email visible as plain text per D-17 (D-02, D-17 render) — depends on 05-01, 05-02
+- [x] 05-05-PLAN.md — CV section components: bullets render, SkillGroupList, DownloadCVButton, centered layout (D-02, D-12, D-13, D-16) — depends on 05-02
+- [x] 05-06-PLAN.md — HeroMandala client component + MandalaSVG + HeroMandalaControls + Hero two-column embed (D-01, D-05–D-09) — depends on 05-01, 05-04
+- [x] 05-07-PLAN.md — Re-center Projects + Contact, data-driven contact (LinkedIn/GitHub/email) with email visible as plain text per D-17 (D-02, D-17 render) — depends on 05-01, 05-02
 
 **Wave 3** *(phase exit gate)*
 
