@@ -1,3 +1,5 @@
+import { EMAIL_ENCODED } from '@/lib/email'
+
 export interface WorkRole {
   title: string
   dates: string // e.g. "May 2025 — Present"
@@ -24,7 +26,11 @@ export interface SkillGroup {
 export interface Contact {
   github: string
   linkedin: string
-  email: string
+  // Base64-encoded email. Decode via `decodeEmail` from `@/lib/email` at the
+  // render boundary on the client. Never store or import the plain address
+  // anywhere outside the decode call site, otherwise harvesters that grep
+  // the bundled JS will find it.
+  emailEncoded: string
 }
 
 export const bio: string =
@@ -35,7 +41,7 @@ export const title: string = 'Senior Engineering Manager | Backend & Data'
 export const contact: Contact = {
   github: 'https://github.com/axelwaserman',
   linkedin: 'https://www.linkedin.com/in/axel-waserman-9753221a6/',
-  email: 'axel.waserman@gmail.com',
+  emailEncoded: EMAIL_ENCODED,
 }
 
 export const workStints: WorkStint[] = [

@@ -1,9 +1,14 @@
 @import 'tailwindcss';
 @import '../styles/tokens.css';
 
+html {
+  overflow-x: clip;
+}
+
 body {
   background-color: var(--color-surface);
   color: var(--color-text);
   font-family: var(--font-body);
   line-height: 1.6;
+  overflow-x: clip;
 }

@@ -18,7 +18,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: Projects** - GitHub API data layer and projects section wired end-to-end (completed 2026-05-30, currently rendering fallback/dummy data — see Phase 5)
 - [x] **Phase 4: Deploy** - GitHub Actions workflow with daily cron delivering the live site (completed 2026-06-03)
 - [x] **Phase 5: Polish** - Favicon, decorative mandala pattern, real CV content + hyperlinks, real GitHub projects from the API (not the fallback) (completed 2026-06-05)
-- [ ] **Phase 6: Get-in-touch form** - Replace direct contact links (mailto/LinkedIn/GitHub) with a Formspree-backed contact form; keep email visible as plain text + JSON-LD Person markup for ATS / SEO crawlers
+- [x] **Phase 6: Get-in-touch form** - Replace direct contact links (mailto/LinkedIn/GitHub) with a Formspree-backed contact form; keep email visible as plain text + JSON-LD Person markup for ATS / SEO crawlers (completed 2026-06-05)
 
 ## Phase Details
 
@@ -175,7 +175,23 @@ Plans:
   3. Direct contact links (mailto, LinkedIn anchor, GitHub anchor as primary contact channels) are removed from the Contact section; the form is the primary CTA. Hero CTA cluster is updated consistently per the form-first direction.
   4. Form respects `prefers-reduced-motion`, validates input client-side, and shows a clear success / error state on submission
 
-**Plans**: TBD (decompose during /gsd:plan-phase 6)
+**Plans**: 6 plans
+
+Plans:
+**Wave 1** *(parallel-safe; no file overlaps — three independent slices: deps+endpoint, JSON-LD, /thanks page)*
+
+- [x] 06-01-PLAN.md — Add react-hook-form/zod/@hookform/resolvers, regenerate package-lock from scratch, create src/data/site.ts with FORMSPREE_ENDPOINT placeholder (D-01, D-04, D-07)
+- [x] 06-02-PLAN.md — Inject Person JSON-LD <script type="application/ld+json"> into root layout, values sourced from cv.ts (D-22, SC-2 JSON-LD half)
+- [x] 06-04-PLAN.md — Static /thanks confirmation route (Header + thanks block + plain-text email + Back link + noindex meta) (D-17, D-18)
+
+**Wave 2** *(blocked on Wave 1 — depends on 06-01 deps + endpoint)*
+
+- [x] 06-03-PLAN.md — Zod contact schema + ContactForm Client Component (RHF + zodResolver, AJAX submit, honeypot, error block) + Contact section refactor (form embedded, plain-text email caption, anchors removed) (D-02, D-05–D-16, D-20, D-21, D-23)
+
+**Wave 3** *(phase exit gate)*
+
+- [x] 06-05-PLAN.md — Hero CTA swap: replace mailto: anchor with same-page #contact 'Get in touch' anchor (D-19) — depends on 06-03
+- [x] 06-06-PLAN.md — Playwright E2E spec (validation/happy/error/honeypot/JSON-LD/visual screenshots), real Formspree ID provisioning (human checkpoint), visual review per feedback_visual_review_static_export.md — depends on 06-01..06-05
 
 
 ## Progress
@@ -190,4 +206,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 3. Projects | 3/3 | Complete   | 2026-05-30 |
 | 4. Deploy | 3/3 | Complete   | 2026-06-03 |
 | 5. Polish | 0/8 | In progress | - |
-| 6. Get-in-touch form | 0/? | Not started | - |
+| 6. Get-in-touch form | 6/6 | Complete   | 2026-06-05 |
+</content>
+</invoke>

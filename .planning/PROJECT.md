@@ -16,10 +16,11 @@ A recruiter, collaborator, or curious stranger can land on the site, understand 
 - [x] **PROJ-02** (Phase 3, verified 2026-06-03): Each project entry displays repo name and description
 - [x] **PROJ-03** (Phase 3, verified 2026-06-03): Each project entry links to a live demo if `homepage` field is set
 - [x] **INFRA-07** (Phase 4, mechanically verified 2026-06-03; live UAT pending post-merge): GitHub Actions workflow with push-to-main, daily cron, and `workflow_dispatch` triggers; deploys to GitHub Pages via `actions/configure-pages@v5` + `actions/deploy-pages@v5`
+- [x] **CONTACT-06** (Phase 6, verified 2026-06-05): Working contact surface — Formspree-backed form with Zod validation, /thanks confirmation route, anti-harvest base64 email obfuscation, JSON-LD Person schema injected client-side post-hydration, mailto: anchors removed site-wide
 
 ### Active
 
-- [ ] Single scrolling page with sections: hero/intro, about/CV, projects, contact
+- [x] Single scrolling page with sections: hero/intro, about/CV, projects, contact (validated in Phase 6 — contact section shipped)
 - [ ] CV section with work experience, education, skills, and contact/social links
 - [x] GitHub projects list: fetched from GitHub API, rebuilt daily via GH Actions (Phase 3 shipped build-time fetch; Phase 4 shipped daily cron + dispatch)
 - [ ] Each project entry shows name, description, primary language (star count deliberately excluded per D-08)

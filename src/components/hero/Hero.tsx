@@ -40,10 +40,10 @@ export default function Hero() {
               LinkedIn
             </a>
             <a
-              href="mailto:axel.waserman@gmail.com"
+              href="#contact"
               className="text-[length:var(--text-ui)] text-[var(--color-text)] underline underline-offset-2 decoration-[var(--color-muted)] hover:decoration-[var(--color-accent)] hover:text-[var(--color-accent)] focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2 py-2"
             >
-              Email
+              Get in touch
             </a>
             <a
               href="/cv.pdf"
