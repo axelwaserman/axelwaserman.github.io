@@ -18,7 +18,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: Projects** - GitHub API data layer and projects section wired end-to-end (completed 2026-05-30, currently rendering fallback/dummy data — see Phase 5)
 - [x] **Phase 4: Deploy** - GitHub Actions workflow with daily cron delivering the live site (completed 2026-06-03)
 - [x] **Phase 5: Polish** - Favicon, decorative mandala pattern, real CV content + hyperlinks, real GitHub projects from the API (not the fallback) (completed 2026-06-05)
-- [ ] **Phase 6: Get-in-touch form** - Replace direct contact links (mailto/LinkedIn/GitHub) with a Formspree-backed contact form; keep email visible as plain text + JSON-LD Person markup for ATS / SEO crawlers
+- [x] **Phase 6: Get-in-touch form** - Replace direct contact links (mailto/LinkedIn/GitHub) with a Formspree-backed contact form; keep email visible as plain text + JSON-LD Person markup for ATS / SEO crawlers (completed 2026-06-05)
 
 ## Phase Details
 
@@ -191,7 +191,7 @@ Plans:
 **Wave 3** *(phase exit gate)*
 
 - [x] 06-05-PLAN.md — Hero CTA swap: replace mailto: anchor with same-page #contact 'Get in touch' anchor (D-19) — depends on 06-03
-- [ ] 06-06-PLAN.md — Playwright E2E spec (validation/happy/error/honeypot/JSON-LD/visual screenshots), real Formspree ID provisioning (human checkpoint), visual review per feedback_visual_review_static_export.md — depends on 06-01..06-05
+- [x] 06-06-PLAN.md — Playwright E2E spec (validation/happy/error/honeypot/JSON-LD/visual screenshots), real Formspree ID provisioning (human checkpoint), visual review per feedback_visual_review_static_export.md — depends on 06-01..06-05
 
 
 ## Progress
@@ -206,6 +206,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 3. Projects | 3/3 | Complete   | 2026-05-30 |
 | 4. Deploy | 3/3 | Complete   | 2026-06-03 |
 | 5. Polish | 0/8 | In progress | - |
-| 6. Get-in-touch form | 5/6 | In Progress|  |
+| 6. Get-in-touch form | 6/6 | Complete   | 2026-06-05 |
 </content>
 </invoke>
