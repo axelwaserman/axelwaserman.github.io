@@ -31,7 +31,6 @@ export default function WorkStint({ stint }: WorkStintProps) {
             const split = splitBulletPrefix(bullet)
             return (
               <li
-                // eslint-disable-next-line react/no-array-index-key -- bullet order is data-driven and immutable
                 key={index}
                 className="text-[length:var(--text-body)] text-[var(--color-text)] max-w-[65ch] leading-[1.6]"
               >
