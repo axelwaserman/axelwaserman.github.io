@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Sora, Instrument_Serif } from 'next/font/google'
 import './globals.css'
-import { personSchema } from '@/lib/person-schema'
+import PersonSchema from '@/components/PersonSchema'
 
 const sora = Sora({
   subsets: ['latin'],
@@ -51,10 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sora.variable} ${instrumentSerif.variable}`}>
       <body className="antialiased">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-        />
+        <PersonSchema />
         {children}
       </body>
     </html>

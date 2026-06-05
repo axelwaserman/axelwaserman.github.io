@@ -1,19 +1,14 @@
 'use client'
 
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useMemo, useRef, useState } from 'react'
 import type { BaseSyntheticEvent } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
 import { contactSchema, type ContactFormValues } from './contact-schema'
 import { FORMSPREE_ENDPOINT } from '@/data/site'
-
-// User-facing fallback message rendered above the submit button when the
-// Formspree call fails for any reason (non-2xx, quota / rate-limit, network).
-// Per Phase 6 D-16 / D-03: a single generic message that surfaces the
-// plain-text email so the visitor still has a path to reach Axel.
-const FALLBACK_ERROR_MESSAGE =
-  'Something went wrong. Email me directly at axel.waserman@gmail.com.'
+import { contact } from '@/data/cv'
+import { decodeEmail } from '@/lib/email'
 
 // Shared Tailwind class strings — kept as constants so the JSX stays readable.
 const fieldWrapperClass = 'flex flex-col gap-2'
@@ -32,6 +27,13 @@ export default function ContactForm() {
   // failed submit) ergonomic without re-querying the DOM each time.
   const gotchaRef = useRef<HTMLInputElement>(null)
   const [submitError, setSubmitError] = useState<string | null>(null)
+  // Decoded only at render time on the client. Never appears in the static
+  // HTML or in the bundled module source as a plain literal — anti-harvest.
+  const decodedEmail = useMemo(
+    () => decodeEmail(contact.emailEncoded),
+    [],
+  )
+  const fallbackErrorMessage = `Something went wrong. Email me directly at ${decodedEmail}.`
 
   const {
     register,
@@ -78,16 +80,16 @@ export default function ContactForm() {
         })
 
         if (!response.ok) {
-          setSubmitError(FALLBACK_ERROR_MESSAGE)
+          setSubmitError(fallbackErrorMessage)
           return
         }
 
         router.push('/thanks')
       } catch {
-        setSubmitError(FALLBACK_ERROR_MESSAGE)
+        setSubmitError(fallbackErrorMessage)
       }
     },
-    [router],
+    [router, fallbackErrorMessage],
   )
 
   return (

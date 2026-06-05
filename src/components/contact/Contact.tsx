@@ -1,4 +1,3 @@
-import { contact } from '@/data/cv'
 import ContactForm from './ContactForm'
 
 export default function Contact() {
@@ -18,14 +17,6 @@ export default function Contact() {
         Open to opportunities, collaborations, and interesting conversations.
       </p>
       <ContactForm />
-      {/* Plain-text email caption (D-21 / SC-2 rendered-HTML half).
-          MUST remain plain text — not an anchor tag — so ATS scrapers can
-          parse the address without resurrecting a clickable email link.
-          The form above is the primary CTA; this is an explicit, low-
-          emphasis fallback channel. */}
-      <p className="text-[length:var(--text-ui)] text-[var(--color-muted)] text-center mt-6">
-        {`Or reach me directly at ${contact.email}.`}
-      </p>
     </section>
   )
 }

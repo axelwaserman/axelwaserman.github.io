@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Header from '@/components/header/Header'
-import { contact } from '@/data/cv'
 
 export const metadata: Metadata = {
   title: 'Thanks — Axel Waserman',
@@ -18,9 +17,6 @@ export default function ThanksPage() {
         </h1>
         <p className="mt-6 text-[length:var(--text-body)] text-[var(--color-text)]">
           I read every message and will reply soon.
-        </p>
-        <p className="mt-4 text-[length:var(--text-ui)] text-[var(--color-muted)]">
-          Or email me directly at {contact.email}.
         </p>
         <p className="mt-10">
           <Link
