@@ -63,10 +63,14 @@ test.describe('Phase 6 — Contact form', () => {
     await expect(page).toHaveURL(/\/thanks\/?$/)
     expect(formspreeRequested, 'form must POST to formspree.io').toBe(true)
 
-    // /thanks rendered content
+    // /thanks rendered content (no email caption — email only surfaces in
+    // the form's error fallback now, not on success)
     await expect(page.getByRole('heading', { name: /thanks — message received\.?/i })).toBeVisible()
-    await expect(page.getByText(EMAIL).first()).toBeVisible()
     await expect(page.getByRole('link', { name: /back to home/i })).toBeVisible()
+    expect(
+      await page.locator(`text=${EMAIL}`).count(),
+      '/thanks must not surface the plain email',
+    ).toBe(0)
   })
 
   // UAT-3: Error path — non-2xx response renders inline fallback block with the email address
@@ -100,34 +104,47 @@ test.describe('Phase 6 — Contact form', () => {
     await expect(honeypot).not.toBeVisible()
   })
 
-  // UAT-5: JSON-LD Person presence (SC-2 — authoritative DOM-parser check)
-  test('JSON-LD Person schema is present with correct @type and email', async ({ page }) => {
+  // UAT-5: JSON-LD Person is injected post-hydration with the decoded email
+  // (anti-harvest: the static HTML must NOT contain the address)
+  test('JSON-LD Person schema is injected client-side with decoded email', async ({ page }) => {
     await page.goto('/')
     await page.waitForLoadState('networkidle')
 
-    const jsonLdRaw = await page.locator('script[type="application/ld+json"]').first().textContent()
-    expect(jsonLdRaw, 'JSON-LD <script> must exist').not.toBeNull()
+    // After hydration, the script tag exists and parses to a Person with the email.
+    const jsonLdRaw = await page
+      .locator('script[type="application/ld+json"]')
+      .first()
+      .textContent()
+    expect(jsonLdRaw, 'JSON-LD <script> must exist after hydration').not.toBeNull()
 
     const parsed = JSON.parse(jsonLdRaw!) as Record<string, unknown>
     expect(parsed['@type']).toBe('Person')
     expect(parsed.email).toBe(EMAIL)
   })
 
-  // UAT-6: Plain-text email visible in contact section, NOT inside an <a> (SC-2 visible half)
-  test('plain-text email is rendered in contact section as text, not as an anchor', async ({
+  // UAT-6: Plain email must NOT appear in the SSR/static HTML — anti-harvest gate.
+  // We fetch the raw HTML directly (no JS execution) and assert the address is absent.
+  test('static HTML never serialises the plain email (anti-harvest)', async ({ request }) => {
+    const response = await request.get('/')
+    expect(response.ok()).toBe(true)
+    const html = await response.text()
+    expect(
+      html.includes(EMAIL),
+      'static HTML must not contain the plain email — must be base64 + decoded client-side',
+    ).toBe(false)
+  })
+
+  // UAT-6b: Contact section never shows the plain email at rest — only the form is visible.
+  test('contact section does not surface the plain email in the resting state', async ({
     page,
   }) => {
     await page.goto('/')
     await page.waitForLoadState('networkidle')
 
     const contactSection = page.locator('section#contact')
-    await expect(contactSection).toContainText(`Or reach me directly at ${EMAIL}`)
-
-    // Confirm no <a> inside the contact section wraps the email address
-    const emailAnchorsInContact = contactSection.locator(`a:has-text("${EMAIL}")`)
     expect(
-      await emailAnchorsInContact.count(),
-      'plain-text email caption must not be wrapped in an <a>',
+      await contactSection.locator(`text=${EMAIL}`).count(),
+      'plain email must not be visible in the contact section at rest',
     ).toBe(0)
   })
 
