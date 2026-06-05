@@ -29,13 +29,16 @@ describe('generateLines', () => {
     expect(lines[0].y1).toBeCloseTo(CENTER - RADIUS, 6) // 40
   })
 
-  it('all chord endpoints are within radius 460 of center', () => {
+  it('all chord endpoints are within radius 460 of center (within 4-decimal quantization)', () => {
     const lines = generateLines(200, 2)
     for (const line of lines) {
       const d1 = Math.hypot(line.x1 - CENTER, line.y1 - CENTER)
       const d2 = Math.hypot(line.x2 - CENTER, line.y2 - CENTER)
-      expect(d1).toBeCloseTo(RADIUS, 6)
-      expect(d2).toBeCloseTo(RADIUS, 6)
+      // coords are quantized to 4 decimals to avoid SSR/client FP drift, so
+      // the radial distance can drift up to ~1e-4 from RADIUS. 3-digit
+      // precision (1e-3.5) covers that comfortably.
+      expect(d1).toBeCloseTo(RADIUS, 3)
+      expect(d2).toBeCloseTo(RADIUS, 3)
     }
   })
 
