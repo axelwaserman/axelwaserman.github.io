@@ -104,13 +104,13 @@ export default function HeroMandala() {
   }
 
   return (
-    <div ref={containerRef} className="w-full">
+    <div ref={containerRef} className="w-full lg:max-w-[36rem]">
       <div
         ref={svgWrapperRef}
-        className="aspect-square mx-auto"
+        className="aspect-square mx-auto lg:mx-0 lg:ml-auto"
         style={{
           transformOrigin: '50% 50%',
-          maxWidth: 'min(50vw, 600px)',
+          maxWidth: 'min(80vw, 36rem)',
         }}
       >
         <MandalaSVG n={n} k={k} />

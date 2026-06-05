@@ -6,10 +6,10 @@ export default function Hero() {
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="min-h-screen flex flex-col justify-center px-6 max-w-6xl scroll-mt-16"
+      className="min-h-screen flex flex-col justify-center px-6 sm:px-10 lg:px-16 scroll-mt-16"
     >
       <div className="grid grid-cols-1 sm:grid-cols-[60%_40%] lg:grid-cols-2 gap-8 lg:gap-12 lg:items-center">
-        <div>
+        <div className="max-w-[40rem]">
           <h1
             id="hero-heading"
             className="font-[var(--font-heading)] text-[length:var(--text-hero)] leading-[1.05] text-[var(--color-text)] mb-6"
@@ -54,7 +54,7 @@ export default function Hero() {
             </a>
           </div>
         </div>
-        <div>
+        <div className="lg:flex lg:justify-end">
           <HeroMandala />
         </div>
       </div>
