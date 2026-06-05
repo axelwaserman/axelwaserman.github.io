@@ -8,6 +8,16 @@ A single-page personal website serving as a public home on the web — for job s
 
 A recruiter, collaborator, or curious stranger can land on the site, understand who Axel is, and find his work within 30 seconds — no friction, no staleness.
 
+## Current Milestone: v1.1 positioning
+
+**Goal:** Reposition site + CV for Engineering Manager / Staff Data Engineer roles at async, fully-remote B2B SaaS (PostHog, GitLab, RevenueCat). Project high-agency, async-first, metrics-driven engineering identity. Eliminate corporate fluff and passive verbs.
+
+**Target features:**
+- Engineering Philosophy section (standalone, between CV and Projects) — three pillars: Documentation First / High Agency & Iteration / Metrics over Activity
+- Project portfolio rewrite to Problem → Solution → Impact schema with one quantified metric per impact line
+- Typst CV semantic pass — replace passive verbs with high-agency engineering verbs; enforce ≥1 quantitative metric per operational bullet
+- CV PDF rename to `Axel_Waserman_Engineering_Manager.pdf`; update download paths site-wide
+
 ## Requirements
 
 ### Validated
@@ -84,4 +94,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-03 after Phase 4 completion (deploy workflow shipped; live URL pending one-time GitHub Pages enablement)*
+*Last updated: 2026-06-06 after starting milestone v1.1 (positioning pass for EM/Staff Data Eng applications at async B2B SaaS)*
