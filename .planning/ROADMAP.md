@@ -186,7 +186,7 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 — depends on 06-01 deps + endpoint)*
 
-- [ ] 06-03-PLAN.md — Zod contact schema + ContactForm Client Component (RHF + zodResolver, AJAX submit, honeypot, error block) + Contact section refactor (form embedded, plain-text email caption, anchors removed) (D-02, D-05–D-16, D-20, D-21, D-23)
+- [x] 06-03-PLAN.md — Zod contact schema + ContactForm Client Component (RHF + zodResolver, AJAX submit, honeypot, error block) + Contact section refactor (form embedded, plain-text email caption, anchors removed) (D-02, D-05–D-16, D-20, D-21, D-23)
 
 **Wave 3** *(phase exit gate)*
 
@@ -206,6 +206,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 3. Projects | 3/3 | Complete   | 2026-05-30 |
 | 4. Deploy | 3/3 | Complete   | 2026-06-03 |
 | 5. Polish | 0/8 | In progress | - |
-| 6. Get-in-touch form | 3/6 | In Progress|  |
+| 6. Get-in-touch form | 4/6 | In Progress|  |
 </content>
 </invoke>
