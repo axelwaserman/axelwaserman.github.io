@@ -103,7 +103,7 @@ export async function fetchProjects(): Promise<Project[]> {
       homepage: isHttpUrl(raw.homepage) ? raw.homepage : null,
     }))
   } catch (error: unknown) {
-    // eslint-disable-next-line no-console -- intentional build-time warning per CTX D-06; this code only runs during `next build`, never in the client bundle
+    // intentional build-time warning per CTX D-06; this code only runs during `next build`, never in the client bundle
     console.warn(
       '::warning::[projects] GitHub fetch failed, using src/data/projects.json fallback. Reason:',
       error instanceof Error ? error.name : 'unknown',

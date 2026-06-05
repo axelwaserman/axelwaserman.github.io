@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { pickRandomPair, type MandalaPair } from '@/lib/mandala'
+import { CURATED_PAIRS, pickRandomPair, type MandalaPair } from '@/lib/mandala'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import MandalaSVG from './MandalaSVG'
 import HeroMandalaControls from './HeroMandalaControls'
@@ -16,11 +16,25 @@ function clamp(value: number, min: number, max: number): number {
   return Math.min(Math.max(value, min), max)
 }
 
+// Initial pair is deterministic so SSR markup matches the first client render
+// and React doesn't bail out of hydration. The randomization runs in an
+// effect after mount.
+const INITIAL_PAIR: MandalaPair = CURATED_PAIRS[0]
+
 export default function HeroMandala() {
   const reduced = useReducedMotion()
-  const [currentPair, setCurrentPair] = useState<MandalaPair>(() => pickRandomPair())
+  const [currentPair, setCurrentPair] = useState<MandalaPair>(INITIAL_PAIR)
   const containerRef = useRef<HTMLDivElement>(null)
   const svgWrapperRef = useRef<HTMLDivElement>(null)
+
+  // Effect 0: pick a random pair on first client mount (post-hydration).
+  // setState inside an effect is intentional here — the initial pair is
+  // deterministic so server and first-client renders match, then this
+  // effect swaps in a random pair after hydration is safe.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- see comment above
+    setCurrentPair(pickRandomPair(INITIAL_PAIR))
+  }, [])
 
   // Effect 1: scroll-driven rotation (rAF + passive listener)
   useEffect(() => {

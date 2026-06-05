@@ -31,11 +31,20 @@ export const CURATED_PAIRS: readonly MandalaPair[] = [
   { n: 360, k: 73 }, // 7-cusp
 ] as const
 
+// 4 decimal places of an SVG user unit ≈ 0.0001px at viewBox=1000, well below
+// any visible threshold but enough to avoid hydration mismatches caused by
+// last-digit floating-point drift between SSR and client runtimes.
+const COORD_DECIMALS = 4
+
+function quantize(value: number): number {
+  return Number(value.toFixed(COORD_DECIMALS))
+}
+
 function pointOnCircle(index: number, n: number): { x: number; y: number } {
   const theta = (2 * Math.PI * index) / n - QUARTER_TURN
   return {
-    x: CENTER + RADIUS * Math.cos(theta),
-    y: CENTER + RADIUS * Math.sin(theta),
+    x: quantize(CENTER + RADIUS * Math.cos(theta)),
+    y: quantize(CENTER + RADIUS * Math.sin(theta)),
   }
 }
 
