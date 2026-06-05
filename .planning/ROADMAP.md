@@ -190,7 +190,7 @@ Plans:
 
 **Wave 3** *(phase exit gate)*
 
-- [ ] 06-05-PLAN.md — Hero CTA swap: replace mailto: anchor with same-page #contact 'Get in touch' anchor (D-19) — depends on 06-03
+- [x] 06-05-PLAN.md — Hero CTA swap: replace mailto: anchor with same-page #contact 'Get in touch' anchor (D-19) — depends on 06-03
 - [ ] 06-06-PLAN.md — Playwright E2E spec (validation/happy/error/honeypot/JSON-LD/visual screenshots), real Formspree ID provisioning (human checkpoint), visual review per feedback_visual_review_static_export.md — depends on 06-01..06-05
 
 
@@ -206,6 +206,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 3. Projects | 3/3 | Complete   | 2026-05-30 |
 | 4. Deploy | 3/3 | Complete   | 2026-06-03 |
 | 5. Polish | 0/8 | In progress | - |
-| 6. Get-in-touch form | 4/6 | In Progress|  |
+| 6. Get-in-touch form | 5/6 | In Progress|  |
 </content>
 </invoke>
