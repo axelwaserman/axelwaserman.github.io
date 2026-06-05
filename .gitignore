@@ -35,3 +35,14 @@ next-env.d.ts
 e2e/screenshots/
 playwright-report/
 test-results/
+
+# IDE
+.idea/
+.vscode/
+
+# Local Claude / agent state
+.claude/
+
+# Stray screenshots dropped at the repo root during review
+/[0-9][0-9][0-9][0-9]-*.jpg
+/[0-9][0-9][0-9][0-9]-*.png
