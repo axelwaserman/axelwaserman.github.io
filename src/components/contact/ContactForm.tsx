@@ -12,12 +12,10 @@ import { decodeEmail } from '@/lib/email'
 
 // Shared Tailwind class strings — kept as constants so the JSX stays readable.
 const fieldWrapperClass = 'flex flex-col gap-2'
-const labelClass =
-  'text-[length:var(--text-ui)] text-[var(--color-muted)] font-medium'
+const labelClass = 'text-[length:var(--text-ui)] text-[var(--color-muted)] font-medium'
 const inputBaseClass =
   'w-full rounded-[var(--radius-card)] border border-[var(--color-muted)]/40 bg-[var(--color-surface)] text-[length:var(--text-body)] text-[var(--color-text)] px-4 py-3 transition-colors focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2 focus:border-[var(--color-accent)] aria-[invalid=true]:border-[var(--color-accent)]'
-const errorClass =
-  'text-[length:var(--text-ui)] text-[var(--color-accent)] mt-0.5'
+const errorClass = 'text-[length:var(--text-ui)] text-[var(--color-accent)] mt-0.5'
 
 export default function ContactForm() {
   const router = useRouter()
@@ -29,10 +27,7 @@ export default function ContactForm() {
   const [submitError, setSubmitError] = useState<string | null>(null)
   // Decoded only at render time on the client. Never appears in the static
   // HTML or in the bundled module source as a plain literal — anti-harvest.
-  const decodedEmail = useMemo(
-    () => decodeEmail(contact.emailEncoded),
-    [],
-  )
+  const decodedEmail = useMemo(() => decodeEmail(contact.emailEncoded), [])
   const fallbackErrorMessage = `Something went wrong. Email me directly at ${decodedEmail}.`
 
   const {
@@ -57,15 +52,10 @@ export default function ContactForm() {
   // react-hooks/refs rule (refs may be read in event handlers, never during
   // render).
   const onSubmit = useCallback(
-    async (
-      values: ContactFormValues,
-      event?: BaseSyntheticEvent,
-    ): Promise<void> => {
+    async (values: ContactFormValues, event?: BaseSyntheticEvent): Promise<void> => {
       setSubmitError(null)
       const formEl = event?.target as HTMLFormElement | undefined
-      const honeypotInput = formEl?.elements.namedItem(
-        '_gotcha',
-      ) as HTMLInputElement | null
+      const honeypotInput = formEl?.elements.namedItem('_gotcha') as HTMLInputElement | null
       const honeypotValue = honeypotInput?.value ?? ''
       const body = JSON.stringify({ ...values, _gotcha: honeypotValue })
 
@@ -164,9 +154,7 @@ export default function ContactForm() {
           type="text"
           autoComplete="organization"
           aria-invalid={errors.company ? true : false}
-          aria-describedby={
-            errors.company ? 'contact-company-error' : undefined
-          }
+          aria-describedby={errors.company ? 'contact-company-error' : undefined}
           className={inputBaseClass}
           {...register('company')}
         />
@@ -185,9 +173,7 @@ export default function ContactForm() {
           id="contact-message"
           rows={6}
           aria-invalid={errors.message ? true : false}
-          aria-describedby={
-            errors.message ? 'contact-message-error' : undefined
-          }
+          aria-describedby={errors.message ? 'contact-message-error' : undefined}
           className={`${inputBaseClass} resize-y min-h-[8rem]`}
           {...register('message')}
         />

@@ -111,10 +111,7 @@ test.describe('Phase 6 — Contact form', () => {
     await page.waitForLoadState('networkidle')
 
     // After hydration, the script tag exists and parses to a Person with the email.
-    const jsonLdRaw = await page
-      .locator('script[type="application/ld+json"]')
-      .first()
-      .textContent()
+    const jsonLdRaw = await page.locator('script[type="application/ld+json"]').first().textContent()
     expect(jsonLdRaw, 'JSON-LD <script> must exist after hydration').not.toBeNull()
 
     const parsed = JSON.parse(jsonLdRaw!) as Record<string, unknown>
