@@ -1,35 +1,43 @@
-import { workEntries, educationEntries, skills } from '@/data/cv'
-import WorkEntry from './WorkEntry'
+import { workStints, educationEntries, skillGroups } from '@/data/cv'
+import WorkStint from './WorkStint'
 import EducationEntry from './EducationEntry'
-import SkillsList from './SkillsList'
+import SkillGroupList from './SkillGroupList'
+import DownloadCVButton from './DownloadCVButton'
 
 export default function CV() {
   return (
     <section
       id="cv"
       aria-labelledby="cv-heading"
-      className="py-[var(--space-section)] px-6 max-w-4xl scroll-mt-16"
+      className="py-[var(--space-section)] px-6 max-w-3xl mx-auto scroll-mt-16"
     >
-      <h2 id="cv-heading" className="sr-only">CV</h2>
+      <h2 id="cv-heading" className="sr-only">
+        CV
+      </h2>
 
       {/* Work */}
-      <div className="grid grid-cols-1 sm:grid-cols-[20%_1fr] gap-y-8 sm:gap-x-12 mb-20">
-        <div className="text-[length:var(--text-ui)] font-semibold text-[var(--color-muted)] uppercase tracking-[0.08em]">
+      <div className="mb-12">
+        <div className="text-center text-[length:var(--text-ui)] font-semibold text-[var(--color-muted)] uppercase tracking-[0.08em]">
           Work
         </div>
-        <div className="space-y-12">
-          {workEntries.map((entry) => (
-            <WorkEntry key={`${entry.company}-${entry.dates}`} entry={entry} />
+        <div className="mt-6 space-y-8">
+          {workStints.map((stint) => (
+            <WorkStint key={`${stint.company}-${stint.roles[0]?.dates ?? ''}`} stint={stint} />
           ))}
         </div>
       </div>
 
+      {/* Download CV (PDF) — secondary CTA between Work and Education (D-12) */}
+      <div className="flex justify-center mt-12 mb-12">
+        <DownloadCVButton />
+      </div>
+
       {/* Education */}
-      <div className="grid grid-cols-1 sm:grid-cols-[20%_1fr] gap-y-8 sm:gap-x-12 mb-20">
-        <div className="text-[length:var(--text-ui)] font-semibold text-[var(--color-muted)] uppercase tracking-[0.08em]">
+      <div className="mb-12">
+        <div className="text-center text-[length:var(--text-ui)] font-semibold text-[var(--color-muted)] uppercase tracking-[0.08em]">
           Education
         </div>
-        <div className="space-y-8">
+        <div className="mt-6 space-y-8">
           {educationEntries.map((entry) => (
             <EducationEntry key={`${entry.institution}-${entry.years}`} entry={entry} />
           ))}
@@ -37,11 +45,13 @@ export default function CV() {
       </div>
 
       {/* Skills */}
-      <div className="grid grid-cols-1 sm:grid-cols-[20%_1fr] gap-y-8 sm:gap-x-12">
-        <div className="text-[length:var(--text-ui)] font-semibold text-[var(--color-muted)] uppercase tracking-[0.08em]">
+      <div className="mb-12">
+        <div className="text-center text-[length:var(--text-ui)] font-semibold text-[var(--color-muted)] uppercase tracking-[0.08em]">
           Skills
         </div>
-        <SkillsList skills={skills} />
+        <div className="mt-6">
+          <SkillGroupList groups={skillGroups} />
+        </div>
       </div>
     </section>
   )

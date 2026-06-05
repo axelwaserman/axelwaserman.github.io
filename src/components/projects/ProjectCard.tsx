@@ -10,14 +10,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article className="group p-6 rounded-[var(--radius-card)] border border-[var(--color-muted)]/20 transition-colors duration-200 ease-out hover:border-[var(--color-accent)]/40">
-      <h3 className="text-[length:var(--text-body)] font-semibold mb-1 transition-colors duration-200 ease-out group-hover:text-[var(--color-accent)]">{project.name}</h3>
+      <h3 className="text-[length:var(--text-body)] font-semibold mb-1 transition-colors duration-200 ease-out group-hover:text-[var(--color-accent)]">
+        {project.name}
+      </h3>
       {(project.language || relative) && (
         <p className="text-[length:var(--text-ui)] text-[var(--color-muted)] mb-3">
           {project.language}
           {project.language && relative && ' · '}
-          {relative && project.pushedAt && (
-            <time dateTime={project.pushedAt}>{relative}</time>
-          )}
+          {relative && project.pushedAt && <time dateTime={project.pushedAt}>{relative}</time>}
         </p>
       )}
       {project.description?.trim() && (
