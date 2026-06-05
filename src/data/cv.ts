@@ -1,7 +1,11 @@
-export interface WorkEntry {
-  role: string
-  company: string
+export interface WorkRole {
+  title: string
   dates: string       // e.g. "May 2025 — Present"
+}
+
+export interface WorkStint {
+  company: string
+  roles: WorkRole[]   // newest role first; multiple roles share the same description + bullets (per CV.typ grouping)
   description: string
   bullets: string[]
 }
@@ -34,11 +38,13 @@ export const contact: Contact = {
   email: 'axel.waserman@gmail.com',
 }
 
-export const workEntries: WorkEntry[] = [
+export const workStints: WorkStint[] = [
   {
-    role: 'Senior Engineering Manager',
     company: 'Contentsquare',
-    dates: 'May 2025 — Present',
+    roles: [
+      { title: 'Senior Engineering Manager', dates: 'May 2025 — Present' },
+      { title: 'Engineering Manager', dates: 'Jan 2024 — Apr 2025' },
+    ],
     description:
       'Promoted to lead a newly formed, geographically distributed department of 5 Engineers following the acquisition of Hotjar. Tasked with merging distinct engineering cultures, modernizing the data backend, and delivering high-leverage data products.',
     bullets: [
@@ -50,17 +56,11 @@ export const workEntries: WorkEntry[] = [
     ],
   },
   {
-    role: 'Engineering Manager',
     company: 'Contentsquare',
-    dates: 'Jan 2024 — Apr 2025',
-    description:
-      'Promoted to lead a newly formed, geographically distributed department of 5 Engineers following the acquisition of Hotjar. Tasked with merging distinct engineering cultures, modernizing the data backend, and delivering high-leverage data products.',
-    bullets: [],
-  },
-  {
-    role: 'Data Engineer II',
-    company: 'Contentsquare',
-    dates: 'Jan 2023 — Dec 2023',
+    roles: [
+      { title: 'Data Engineer II', dates: 'Jan 2023 — Dec 2023' },
+      { title: 'Data Engineer I', dates: 'May 2022 — Dec 2022' },
+    ],
     description:
       'Operated as a core IC building a reliable data backend to unify internal systems across the organization.',
     bullets: [
@@ -71,17 +71,8 @@ export const workEntries: WorkEntry[] = [
     ],
   },
   {
-    role: 'Data Engineer I',
-    company: 'Contentsquare',
-    dates: 'May 2022 — Dec 2022',
-    description:
-      'Operated as a core IC building a reliable data backend to unify internal systems across the organization.',
-    bullets: [],
-  },
-  {
-    role: 'Data Engineer',
     company: 'PwC France',
-    dates: 'Feb 2021 — Apr 2022',
+    roles: [{ title: 'Data Engineer', dates: 'Feb 2021 — Apr 2022' }],
     description:
       'Consultant within the Data Assurance team, architecting technical solutions for enterprise clients.',
     bullets: [
@@ -90,9 +81,8 @@ export const workEntries: WorkEntry[] = [
     ],
   },
   {
-    role: 'Software Engineer',
     company: 'Panodyssey',
-    dates: 'Mar 2020 — Aug 2020',
+    roles: [{ title: 'Software Engineer', dates: 'Mar 2020 — Aug 2020' }],
     description: '',
     bullets: [
       'Designed and implemented the core content ranking backend algorithm and built automated web-scraping pipelines, resulting in a 30% increase in user acquisition.',

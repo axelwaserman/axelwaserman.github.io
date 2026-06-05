@@ -1,5 +1,5 @@
-import { workEntries, educationEntries, skillGroups } from '@/data/cv'
-import WorkEntry from './WorkEntry'
+import { workStints, educationEntries, skillGroups } from '@/data/cv'
+import WorkStint from './WorkStint'
 import EducationEntry from './EducationEntry'
 import SkillGroupList from './SkillGroupList'
 import DownloadCVButton from './DownloadCVButton'
@@ -21,8 +21,11 @@ export default function CV() {
           Work
         </div>
         <div className="mt-6 space-y-8">
-          {workEntries.map((entry) => (
-            <WorkEntry key={`${entry.company}-${entry.dates}`} entry={entry} />
+          {workStints.map((stint) => (
+            <WorkStint
+              key={`${stint.company}-${stint.roles[0]?.dates ?? ''}`}
+              stint={stint}
+            />
           ))}
         </div>
       </div>
