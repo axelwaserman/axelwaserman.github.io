@@ -115,10 +115,15 @@ export default function HeroMandalaControls({
           What is this?
         </summary>
         <p className="mt-2 leading-relaxed">
-          Times Tables on a Circle. Place <em>n</em> equally-spaced points around a circle, then for each point <em>i</em> draw a chord to point <span className="tabular-nums">(i · k) mod n</span>. Different (n, k) pairs trace out cardioids, nephroids, and higher-order epicycloids — the geometry hiding inside the multiplication table.
+          Times Tables on a Circle. Place <em>n</em> equally-spaced points around a circle, then for
+          each point <em>i</em> draw a chord to point{' '}
+          <span className="tabular-nums">(i · k) mod n</span>. Different (n, k) pairs trace out
+          cardioids, nephroids, and higher-order epicycloids — the geometry hiding inside the
+          multiplication table.
         </p>
         <p className="mt-2 leading-relaxed">
-          I first built this in engineering school as a math-visualisation exercise; the version on this site is a from-scratch reimplementation in React + SVG.
+          I first built this in engineering school as a math-visualisation exercise; the version on
+          this site is a from-scratch reimplementation in React + SVG.
         </p>
       </details>
     </div>

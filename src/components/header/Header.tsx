@@ -17,9 +17,7 @@ export default function Header() {
       className={clsx(
         'sticky top-0 z-50 h-16 px-6 flex items-center justify-between',
         'transition-colors duration-300',
-        scrolled
-          ? 'bg-[var(--color-surface)] shadow-sm'
-          : 'bg-transparent'
+        scrolled ? 'bg-[var(--color-surface)] shadow-sm' : 'bg-transparent',
       )}
     >
       <a

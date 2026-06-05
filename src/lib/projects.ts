@@ -51,7 +51,8 @@ export async function fetchProjects(): Promise<Project[]> {
       headers.set('Authorization', `Bearer ${process.env.GITHUB_TOKEN}`)
     }
 
-    let nextUrl: string | null = `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=${PER_PAGE}&type=owner&sort=pushed&direction=desc`
+    let nextUrl: string | null =
+      `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=${PER_PAGE}&type=owner&sort=pushed&direction=desc`
 
     const rawList: GitHubRepo[] = []
     let pageCount = 0
@@ -59,7 +60,7 @@ export async function fetchProjects(): Promise<Project[]> {
     while (nextUrl) {
       if (pageCount >= MAX_PAGES) {
         throw new Error(
-          `fetchProjects: exceeded MAX_PAGES (${MAX_PAGES}) — implement deeper pagination if ${GITHUB_USERNAME} exceeds 500 repos`
+          `fetchProjects: exceeded MAX_PAGES (${MAX_PAGES}) — implement deeper pagination if ${GITHUB_USERNAME} exceeds 500 repos`,
         )
       }
       const res = await fetch(nextUrl, { headers })
@@ -83,7 +84,7 @@ export async function fetchProjects(): Promise<Project[]> {
 
     // Filter: keep only non-archived, non-disabled, non-fork repos (REVIEW L-14: fork filter is intentional)
     const filtered = rawList.filter(
-      (r) => r.archived === false && r.disabled === false && r.fork === false
+      (r) => r.archived === false && r.disabled === false && r.fork === false,
     )
 
     // Sort by pushed_at descending; treat null as smallest value (sorts to end)
@@ -94,11 +95,8 @@ export async function fetchProjects(): Promise<Project[]> {
     return sorted.map((raw) => ({
       name: raw.name,
       description:
-        typeof raw.description === 'string' && raw.description.length > 0
-          ? raw.description
-          : null,
-      language:
-        typeof raw.language === 'string' && raw.language.length > 0 ? raw.language : null,
+        typeof raw.description === 'string' && raw.description.length > 0 ? raw.description : null,
+      language: typeof raw.language === 'string' && raw.language.length > 0 ? raw.language : null,
       pushedAt:
         typeof raw.pushed_at === 'string' && raw.pushed_at.length > 0 ? raw.pushed_at : null,
       repoUrl: raw.html_url,
@@ -108,7 +106,7 @@ export async function fetchProjects(): Promise<Project[]> {
     // eslint-disable-next-line no-console -- intentional build-time warning per CTX D-06; this code only runs during `next build`, never in the client bundle
     console.warn(
       '::warning::[projects] GitHub fetch failed, using src/data/projects.json fallback. Reason:',
-      error instanceof Error ? error.name : 'unknown'
+      error instanceof Error ? error.name : 'unknown',
     )
     return projectsFallback as unknown as Project[]
   }

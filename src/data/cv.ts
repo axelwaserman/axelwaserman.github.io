@@ -1,11 +1,11 @@
 export interface WorkRole {
   title: string
-  dates: string       // e.g. "May 2025 — Present"
+  dates: string // e.g. "May 2025 — Present"
 }
 
 export interface WorkStint {
   company: string
-  roles: WorkRole[]   // newest role first; multiple roles share the same description + bullets (per CV.typ grouping)
+  roles: WorkRole[] // newest role first; multiple roles share the same description + bullets (per CV.typ grouping)
   description: string
   bullets: string[]
 }
@@ -13,7 +13,7 @@ export interface WorkStint {
 export interface EducationEntry {
   degree: string
   institution: string
-  years: string       // e.g. "2017 — 2021"
+  years: string // e.g. "2017 — 2021"
 }
 
 export interface SkillGroup {
@@ -51,7 +51,7 @@ export const workStints: WorkStint[] = [
       'Post-Acquisition Integration: Successfully integrated Hotjar’s remote-first team culture into Contentsquare, standardizing async documentation frameworks and workflows across 4 time zones to eliminate cultural friction and synchronous dependencies.',
       'Scaled Business-Critical Backend & Data Platform: Architected and scaled a highly reliable system orchestrating ~10,000 data assets across a ~20TB data estate. Powering global company reporting, sales commission payouts, Product Qualified Leads (PQL) computation, and automated retention orchestrators with a zero data downtime record.',
       'Built Self-Serve Systems: Directed the hands-on development of a secure, internal API and data access system, enabling non-technical stakeholders to safely query the main data warehouse. Eliminated engineering bottlenecks and fostered an autonomous engineering environment.',
-      'Drove Engineering Velocity: Revamped the team\'s CI/CD practices, automated testing frameworks, and deployment workflows, increasing deployment frequency by 40% and Q-o-Q initiative delivery by 20%.',
+      "Drove Engineering Velocity: Revamped the team's CI/CD practices, automated testing frameworks, and deployment workflows, increasing deployment frequency by 40% and Q-o-Q initiative delivery by 20%.",
       'Cultivated High-Performing, Resilient Teams: Led full-cycle engineering hiring with a 100% probation pass rate. Maintained 100% team retention across a fully distributed team by anchoring operations in documentation, running blameless post-mortems, and fostering psychological safety.',
     ],
   },
@@ -93,7 +93,7 @@ export const workStints: WorkStint[] = [
 export const educationEntries: EducationEntry[] = [
   {
     degree: 'Master of Engineering — Mathematics and Computer Science',
-    institution: 'ESILV (Ecole Supérieure d\'Ingénieurs Léonard de Vinci)',
+    institution: "ESILV (Ecole Supérieure d'Ingénieurs Léonard de Vinci)",
     years: '2017 — 2021',
   },
   {

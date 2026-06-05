@@ -22,10 +22,7 @@ export default function CV() {
         </div>
         <div className="mt-6 space-y-8">
           {workStints.map((stint) => (
-            <WorkStint
-              key={`${stint.company}-${stint.roles[0]?.dates ?? ''}`}
-              stint={stint}
-            />
+            <WorkStint key={`${stint.company}-${stint.roles[0]?.dates ?? ''}`} stint={stint} />
           ))}
         </div>
       </div>
@@ -42,10 +39,7 @@ export default function CV() {
         </div>
         <div className="mt-6 space-y-8">
           {educationEntries.map((entry) => (
-            <EducationEntry
-              key={`${entry.institution}-${entry.years}`}
-              entry={entry}
-            />
+            <EducationEntry key={`${entry.institution}-${entry.years}`} entry={entry} />
           ))}
         </div>
       </div>

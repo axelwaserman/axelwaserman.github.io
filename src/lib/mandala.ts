@@ -23,12 +23,12 @@ const QUARTER_TURN = Math.PI / 2
 // set after visual review showed (180, 179) collapsed to an n-gon outline and
 // (300, 7) looked like a near-solid disk. Tests below mirror this exact list.
 export const CURATED_PAIRS: readonly MandalaPair[] = [
-  { n: 200, k: 2 },   // cardioid (one cusp)
-  { n: 200, k: 3 },   // nephroid (two cusps)
-  { n: 200, k: 5 },   // 4-cusp epicycloid
-  { n: 240, k: 47 },  // 5-cusp / star
-  { n: 300, k: 53 },  // 6-cusp
-  { n: 360, k: 73 },  // 7-cusp
+  { n: 200, k: 2 }, // cardioid (one cusp)
+  { n: 200, k: 3 }, // nephroid (two cusps)
+  { n: 200, k: 5 }, // 4-cusp epicycloid
+  { n: 240, k: 47 }, // 5-cusp / star
+  { n: 300, k: 53 }, // 6-cusp
+  { n: 360, k: 73 }, // 7-cusp
 ] as const
 
 function pointOnCircle(index: number, n: number): { x: number; y: number } {

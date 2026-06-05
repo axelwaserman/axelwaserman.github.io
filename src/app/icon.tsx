@@ -38,24 +38,22 @@ export default async function Icon(): Promise<ImageResponse> {
   void TEXT_OKLCH
 
   return new ImageResponse(
-    (
-      <div
-        style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: SURFACE_SRGB,
-          color: TEXT_SRGB,
-          fontSize: 22,
-          letterSpacing: '-0.02em',
-          fontFamily: 'Instrument Serif',
-        }}
-      >
-        AW
-      </div>
-    ),
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: SURFACE_SRGB,
+        color: TEXT_SRGB,
+        fontSize: 22,
+        letterSpacing: '-0.02em',
+        fontFamily: 'Instrument Serif',
+      }}
+    >
+      AW
+    </div>,
     {
       ...size,
       fonts: [

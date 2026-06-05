@@ -1,10 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import {
-  generateLines,
-  CURATED_PAIRS,
-  pickRandomPair,
-  type MandalaPair,
-} from '@/lib/mandala'
+import { generateLines, CURATED_PAIRS, pickRandomPair, type MandalaPair } from '@/lib/mandala'
 
 // Tests inject a deterministic `rng` via the optional 2nd arg of `pickRandomPair`
 // so selection is verifiable without flakiness — defaults to Math.random in prod.
@@ -95,9 +90,7 @@ describe('CURATED_PAIRS', () => {
 describe('pickRandomPair', () => {
   it('returns one of the 8 curated pairs when called with no args', () => {
     const pair = pickRandomPair()
-    const isCurated = CURATED_PAIRS.some(
-      (p) => p.n === pair.n && p.k === pair.k,
-    )
+    const isCurated = CURATED_PAIRS.some((p) => p.n === pair.n && p.k === pair.k)
     expect(isCurated).toBe(true)
   })
 
