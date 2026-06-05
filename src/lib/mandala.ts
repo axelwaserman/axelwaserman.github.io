@@ -18,17 +18,17 @@ const CENTER = 500
 const RADIUS = 460
 const QUARTER_TURN = Math.PI / 2
 
-// Locked 8-pair set — UI-SPEC §"Curated (n, k) set — LOCKED" (D-04). Order is
-// load-bearing: tests assert deep equality against this exact sequence.
+// Curated pair set — picked for visual distinctiveness (Mathologer-style
+// cardioid / nephroid / multi-cusp epicycloids). Replaced the original 8-pair
+// set after visual review showed (180, 179) collapsed to an n-gon outline and
+// (300, 7) looked like a near-solid disk. Tests below mirror this exact list.
 export const CURATED_PAIRS: readonly MandalaPair[] = [
-  { n: 200, k: 2 },
-  { n: 200, k: 3 },
-  { n: 240, k: 5 },
-  { n: 300, k: 7 },
-  { n: 360, k: 11 },
-  { n: 144, k: 89 },
-  { n: 180, k: 179 },
-  { n: 250, k: 13 },
+  { n: 200, k: 2 },   // cardioid (one cusp)
+  { n: 200, k: 3 },   // nephroid (two cusps)
+  { n: 200, k: 5 },   // 4-cusp epicycloid
+  { n: 240, k: 47 },  // 5-cusp / star
+  { n: 300, k: 53 },  // 6-cusp
+  { n: 360, k: 73 },  // 7-cusp
 ] as const
 
 function pointOnCircle(index: number, n: number): { x: number; y: number } {

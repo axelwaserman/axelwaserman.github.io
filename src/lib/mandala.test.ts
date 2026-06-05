@@ -68,22 +68,27 @@ describe('generateLines', () => {
 })
 
 describe('CURATED_PAIRS', () => {
-  it('has exactly 8 entries', () => {
-    expect(CURATED_PAIRS).toHaveLength(8)
+  it('has exactly 6 entries', () => {
+    expect(CURATED_PAIRS).toHaveLength(6)
   })
 
-  it('contains every locked pair from UI-SPEC in the locked order', () => {
+  it('contains the visually-vetted pair set in the locked order', () => {
     const expected: readonly MandalaPair[] = [
       { n: 200, k: 2 },
       { n: 200, k: 3 },
-      { n: 240, k: 5 },
-      { n: 300, k: 7 },
-      { n: 360, k: 11 },
-      { n: 144, k: 89 },
-      { n: 180, k: 179 },
-      { n: 250, k: 13 },
+      { n: 200, k: 5 },
+      { n: 240, k: 47 },
+      { n: 300, k: 53 },
+      { n: 360, k: 73 },
     ]
     expect(CURATED_PAIRS).toEqual(expected)
+  })
+
+  it('every pair has 2 ≤ k ≤ n − 2 (excludes degenerate n-gon outline and solid-disk cases)', () => {
+    for (const { n, k } of CURATED_PAIRS) {
+      expect(k).toBeGreaterThanOrEqual(2)
+      expect(k).toBeLessThanOrEqual(n - 2)
+    }
   })
 })
 
@@ -101,9 +106,9 @@ describe('pickRandomPair', () => {
     expect(pair).toEqual(CURATED_PAIRS[0])
   })
 
-  it('with rng returning ~0.999, returns the last (CURATED_PAIRS[7]) when no exclude', () => {
+  it('with rng returning ~0.999, returns the last entry when no exclude', () => {
     const pair = pickRandomPair(undefined, () => 0.9999999)
-    expect(pair).toEqual(CURATED_PAIRS[7])
+    expect(pair).toEqual(CURATED_PAIRS[CURATED_PAIRS.length - 1])
   })
 
   it('never returns the excluded pair — exclude=CURATED_PAIRS[0], rng=() => 0 returns CURATED_PAIRS[1]', () => {
@@ -119,8 +124,10 @@ describe('pickRandomPair', () => {
     }
   })
 
-  it('with exclude=CURATED_PAIRS[7] and rng=() => 0.9999999 returns CURATED_PAIRS[6]', () => {
-    const pair = pickRandomPair(CURATED_PAIRS[7], () => 0.9999999)
-    expect(pair).toEqual(CURATED_PAIRS[6])
+  it('with exclude=last and rng=() => 0.9999999 returns the second-to-last pair', () => {
+    const last = CURATED_PAIRS[CURATED_PAIRS.length - 1]
+    const expected = CURATED_PAIRS[CURATED_PAIRS.length - 2]
+    const pair = pickRandomPair(last, () => 0.9999999)
+    expect(pair).toEqual(expected)
   })
 })
