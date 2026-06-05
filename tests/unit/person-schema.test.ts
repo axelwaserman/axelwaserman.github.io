@@ -34,10 +34,7 @@ test('personSchema: jobTitle is the leading clause of cv.ts title (D-22)', () =>
 test('personSchema: sameAs contains GitHub and LinkedIn URLs from cv.ts', () => {
   assert.deepEqual(personSchema.sameAs, [contact.github, contact.linkedin])
   assert.equal(personSchema.sameAs[0], 'https://github.com/axelwaserman')
-  assert.equal(
-    personSchema.sameAs[1],
-    'https://www.linkedin.com/in/axel-waserman-9753221a6/',
-  )
+  assert.equal(personSchema.sameAs[1], 'https://www.linkedin.com/in/axel-waserman-9753221a6/')
 })
 
 test('personSchema: JSON.stringify produces deterministic minified output', () => {
