@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 5 UI-SPEC approved
-last_updated: "2026-06-04T11:49:43.128Z"
-last_activity: 2026-06-04 -- Phase 05 planning complete
+stopped_at: Phase 5 complete (deployed + verified live)
+last_updated: "2026-06-05T11:55:00.000Z"
+last_activity: 2026-06-05 -- Phase 05 polish complete; live SC-1..SC-4 + D-17 all verified on https://axelwaserman.github.io/
 progress:
   total_phases: 6
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 18
-  completed_plans: 10
-  percent: 56
+  completed_plans: 18
+  percent: 83
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-05-17)
 
 **Core value:** A recruiter, collaborator, or curious stranger can land on the site, understand who Axel is, and find his work within 30 seconds — no friction, no staleness.
-**Current focus:** Milestone complete
+**Current focus:** Phase 06 — Get-in-touch form (next)
 
 ## Current Position
 
-Phase: 04
-Plan: Not started
-Status: Ready to execute
-Last activity: 2026-06-04 -- Phase 05 planning complete
+Phase: 05 (polish) — COMPLETE
+Plan: All 8 plans + post-merge gap fixes shipped
+Status: Phase 5 verified live on production; ready to start Phase 6
+Last activity: 2026-06-05 -- Phase 5 deployed + live SC checks passed
 
-Progress: [████████░░] 75%
+Progress: [████████▓░] 83%
 
 ## Performance Metrics
 
