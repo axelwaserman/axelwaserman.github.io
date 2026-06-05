@@ -1,4 +1,5 @@
 import { contact } from '@/data/cv'
+import ContactForm from './ContactForm'
 
 export default function Contact() {
   return (
@@ -16,37 +17,15 @@ export default function Contact() {
       <p className="text-[length:var(--text-body)] text-[var(--color-muted)] mb-8 max-w-[55ch] text-center mx-auto">
         Open to opportunities, collaborations, and interesting conversations.
       </p>
-      <div className="flex flex-wrap gap-4 justify-center">
-        <a
-          href={`mailto:${contact.email}`}
-          className="text-[length:var(--text-ui)] text-[var(--color-text)] underline underline-offset-2 decoration-[var(--color-muted)] hover:decoration-[var(--color-accent)] hover:text-[var(--color-accent)] focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2 py-2"
-        >
-          {contact.email}
-        </a>
-        <a
-          href={contact.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[length:var(--text-ui)] text-[var(--color-text)] underline underline-offset-2 decoration-[var(--color-muted)] hover:decoration-[var(--color-accent)] hover:text-[var(--color-accent)] focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2 py-2"
-        >
-          LinkedIn
-        </a>
-        <a
-          href={contact.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[length:var(--text-ui)] text-[var(--color-text)] underline underline-offset-2 decoration-[var(--color-muted)] hover:decoration-[var(--color-accent)] hover:text-[var(--color-accent)] focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2 py-2"
-        >
-          GitHub
-        </a>
-        <a
-          href="/cv.pdf"
-          download
-          className="text-[length:var(--text-ui)] text-[var(--color-text)] underline underline-offset-2 decoration-[var(--color-muted)] hover:decoration-[var(--color-accent)] hover:text-[var(--color-accent)] focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2 py-2"
-        >
-          Download CV
-        </a>
-      </div>
+      <ContactForm />
+      {/* Plain-text email caption (D-21 / SC-2 rendered-HTML half).
+          MUST remain plain text — not an anchor tag — so ATS scrapers can
+          parse the address without resurrecting a clickable email link.
+          The form above is the primary CTA; this is an explicit, low-
+          emphasis fallback channel. */}
+      <p className="text-[length:var(--text-ui)] text-[var(--color-muted)] text-center mt-6">
+        {`Or reach me directly at ${contact.email}.`}
+      </p>
     </section>
   )
 }
