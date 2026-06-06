@@ -50,6 +50,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USERNAME: axelwaserman
 
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Generate OG image
+        run: npm run og:generate
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
