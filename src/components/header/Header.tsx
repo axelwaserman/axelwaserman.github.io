@@ -27,7 +27,7 @@ export default function Header() {
     >
       <a
         href="#hero"
-        className="font-[var(--font-heading)] text-[length:var(--text-body)] font-semibold text-[var(--color-text)] no-underline"
+        className="font-[var(--font-heading)] text-[length:var(--text-body)] font-semibold text-[var(--color-text)] no-underline hover:text-[var(--color-accent)] hover:underline focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2"
       >
         Axel W
       </a>
