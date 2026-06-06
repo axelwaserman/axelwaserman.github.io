@@ -7,9 +7,10 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const relative = formatRelativeDate(project.pushedAt)
+  const description = project.description?.trim() ?? ''
 
   return (
-    <article className="group p-6 rounded-[var(--radius-card)] border border-[var(--color-muted)]/20 transition-colors duration-200 ease-out hover:border-[var(--color-accent)]/40">
+    <article className="group h-full flex flex-col p-6 rounded-[var(--radius-card)] border border-[var(--color-muted)]/20 transition-colors duration-200 ease-out hover:border-[var(--color-accent)]/40">
       <h3 className="text-[length:var(--text-body)] font-semibold mb-1 transition-colors duration-200 ease-out group-hover:text-[var(--color-accent)]">
         {project.name}
       </h3>
@@ -20,10 +21,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {relative && project.pushedAt && <time dateTime={project.pushedAt}>{relative}</time>}
         </p>
       )}
-      {project.description?.trim() && (
-        <p className="text-[length:var(--text-body)] mb-6 max-w-[55ch]">{project.description}</p>
+      {description ? (
+        <p className="text-[length:var(--text-body)] max-w-[55ch]">{description}</p>
+      ) : (
+        <p className="sr-only">No description provided</p>
       )}
-      <div className="flex flex-wrap gap-4">
+      <div className="mt-auto pt-6 flex flex-wrap gap-4">
         <a
           href={project.repoUrl}
           target="_blank"
