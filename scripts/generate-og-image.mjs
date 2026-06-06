@@ -42,12 +42,23 @@ function contentTypeFor(filePath) {
   return MIME_BY_EXT[ext] ?? 'application/octet-stream'
 }
 
-function safeJoin(root, requestUrl) {
+async function safeJoin(root, requestUrl) {
   // Strip query string, normalize, resolve against root, then assert containment.
+  // Use fs.realpath for both root and the joined path so symlinks cannot escape
+  // the directory; fall back to the lexical check if the resolved path does not
+  // exist yet (404 path), which path.normalize already protects.
   const urlPath = requestUrl.split('?')[0].split('#')[0]
   const decoded = decodeURIComponent(urlPath)
   const joined = path.normalize(path.join(root, decoded))
-  if (joined !== root && !joined.startsWith(root + path.sep)) {
+  const realRoot = await fs.realpath(root)
+  let realJoined
+  try {
+    realJoined = await fs.realpath(joined)
+  } catch {
+    // File may not exist yet — fall back to lexical containment check.
+    realJoined = joined
+  }
+  if (realJoined !== realRoot && !realJoined.startsWith(realRoot + path.sep)) {
     return null
   }
   return joined
@@ -57,7 +68,7 @@ function startStaticServer(rootDir) {
   return new Promise((resolve, reject) => {
     const server = http.createServer(async (req, res) => {
       try {
-        let filePath = safeJoin(rootDir, req.url ?? '/')
+        let filePath = await safeJoin(rootDir, req.url ?? '/')
         if (filePath === null) {
           res.writeHead(403)
           res.end('Forbidden')
