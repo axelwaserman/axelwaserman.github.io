@@ -84,6 +84,13 @@ export function pickRandomPair(
     exclude === undefined
       ? CURATED_PAIRS
       : CURATED_PAIRS.filter((pair) => !isSamePair(pair, exclude))
+  if (candidates.length === 0) {
+    // Safe fallback when caller excludes the only remaining pair (e.g. if
+    // CURATED_PAIRS is reduced to a single entry equal to `exclude`). The
+    // return type is MandalaPair, not MandalaPair | undefined, so we must
+    // never return undefined.
+    return CURATED_PAIRS[0]
+  }
   const index = Math.floor(rng() * candidates.length)
   return candidates[index]
 }
