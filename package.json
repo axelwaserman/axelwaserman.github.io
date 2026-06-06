@@ -10,6 +10,7 @@
     "lint": "eslint . --max-warnings 0",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "og:generate": "node scripts/generate-og-image.mjs",
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest --passWithNoTests"
   },
