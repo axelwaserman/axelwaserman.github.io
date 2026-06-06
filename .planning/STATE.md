@@ -3,10 +3,10 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: positioning
 status: planning
-last_updated: "2026-06-05T17:15:26.832Z"
-last_activity: 2026-06-05
+last_updated: "2026-06-06T00:00:00.000Z"
+last_activity: 2026-06-06
 progress:
-  total_phases: 0
+  total_phases: 3
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
@@ -17,42 +17,46 @@ progress:
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-05-17)
+See: .planning/PROJECT.md (updated 2026-06-06)
 
 **Core value:** A recruiter, collaborator, or curious stranger can land on the site, understand who Axel is, and find his work within 30 seconds — no friction, no staleness.
-**Current focus:** Milestone complete
+**Current focus:** Milestone v1.1 — positioning pass. Roadmap drafted (Phases 7–9). Next: `/gsd:plan-phase 7`.
 
 ## Current Position
 
-Phase: Not started (defining requirements)
+Phase: 7 (Engineering Philosophy) — not started
 Plan: —
-Status: Defining requirements
-Last activity: 2026-06-05 — Milestone v1.1 started
+Status: Roadmap drafted; awaiting phase planning
+Last activity: 2026-06-06 — Milestone v1.1 roadmap created
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 10
+- Total plans completed (v1.0): 24 across 6 phases
 - Average duration: —
-- Total execution time: 0 hours
+- Total execution time: —
 
 **By Phase:**
 
-| Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|----------|
-| 01 | 1 | - | - |
-| 04 | 3 | - | - |
-| 06 | 6 | - | - |
+| Phase | Plans | Status |
+|-------|-------|--------|
+| 01 Foundation | 1/1 | Complete |
+| 02 Content | 3/3 | Complete |
+| 03 Projects | 3/3 | Complete |
+| 04 Deploy | 3/3 | Complete |
+| 05 Polish | 8/8 | Complete |
+| 06 Get-in-touch form | 6/6 | Complete |
+| 07 Engineering Philosophy | 0/0 | Not started |
+| 08 Project Portfolio P→S→I rewrite | 0/0 | Not started |
+| 09 CV semantic pass + build rename | 0/0 | Not started |
 
 **Recent Trend:**
 
-- Last 5 plans: —
-- Trend: —
+- Last 5 plans: Phase 6 wave-1/2/3 — all Complete
+- Trend: v1.0 closed clean; v1.1 entering planning
 
 *Updated after each plan completion*
-| Phase 02-content P02 | 8 | 3 tasks | 3 files |
-| Phase 02-content P03 | 8 | 3 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -61,37 +65,30 @@ Last activity: 2026-06-05 — Milestone v1.1 started
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
-- Init: axelw.github.io is a user-page repo — NO basePath needed; `actions/configure-pages@v5` handles it
-- Init: No skills directory found; standard Next.js/Tailwind patterns apply
-- Init: `output: 'export'` + `images: { unoptimized: true }` must be set in Phase 1 before any component work
-- 01-01: Scaffolded manually (create-next-app blocked by existing .planning/ and CLAUDE.md files) — all project files created by hand to identical effect
-- 01-01: Font pairing — Sora (body/UI, weights 400–700) + Instrument Serif (headings only, weight 400); both via next/font/google, zero runtime Google Fonts requests
-- 01-01: Design tokens in Tailwind v4 @theme directive — 4 oklch color tokens (warm parchment palette) + 4 clamp() type scale tokens; spacing/radius/animation deferred to Phase 2
-- 02-01: Appended new tokens inside existing @theme block (not a second block) — Tailwind v4 processes only one @theme per file
-- 02-01: CV data file uses named exports only (no default export) — consumed separately by Hero, CV, and Contact components
-- 02-01: All CV content is placeholder text per D-08; must be replaced before launch
-- 02-02: Header uses sticky positioning (not fixed) — element stays in document flow, avoids content overlap
-- 02-02: Hero is a Server Component — build-time data import from cv.ts, zero client JS
-- 02-02: metadataBase required for og:image to resolve as absolute URL in Next.js static export
-- [Phase ?]: FadeUp initial opacity/transform set inside useEffect to avoid FOUC — not in JSX render
-- [Phase ?]: Hero is not wrapped in FadeUp — above-the-fold element must be immediately visible
-- [Phase ?]: useReducedMotion defaults to false (no motion assumed on server) — correct SSR-safe behavior
-- 03: Build-time GitHub fetch with try/catch fallback to committed `src/data/projects.json` — never breaks the build
-- 03: `import 'server-only'` first line of `src/lib/projects.ts` — prevents token leakage to client bundle
-- 03: URL protocol allowlist (`isHttpUrl`) on `homepage` field — closes `javascript:` URL hole
-- 03: Link-header pagination with MAX_PAGES=5 cap — avoids unbounded API loops
-- 03: PR-after-validation workflow established — push branch + open PR for human merge after subagent verification
+- v1.1 init: Three-phase split (Philosophy / Portfolio P→S→I / CV semantic + rename) chosen over a single combined phase — different blast radii, different file sets, different verification surfaces
+- v1.1 init: Phase 7 (Philosophy) sequenced first because it is the smallest, most isolated UI add — pure additive Server Component, no schema or build artifact churn
+- v1.1 init: Phase 8 (Portfolio P→S→I) sequenced second — schema/data-shape change to project type plus content authoring; depends on a stable layout but does not gate Phase 9
+- v1.1 init: Phase 9 (CV semantic + rename) sequenced last because the rename ripples through `Hero.tsx`, `DownloadCVButton.tsx`, `public/` artifact, and any e2e specs — highest verification surface, no need to gate earlier phases on it
+- v1.1 init: Per "data shape mirrors source" memory, Phase 8 P/S/I fields will be optional overlays on the existing project type, not a flattened replacement of `description`
+
+Carryover from v1.0 (still in force):
+
+- axelw.github.io is a user-page repo — NO basePath needed; `actions/configure-pages@v5` handles it
+- `output: 'export'` + `images: { unoptimized: true }` is required for every Server Component
+- Build-time GitHub fetch with try/catch fallback to committed `src/data/projects.json` — never breaks the build
+- `import 'server-only'` first line of `src/lib/projects.ts` — prevents token leakage to client bundle
+- PR-after-validation workflow: push branch + open PR for human merge after subagent verification
+- Visual review for static export: curl/grep insufficient; always Playwright screenshot + Axel eyeball before merge
+- npm ci lock sync: regenerate `package-lock.json` from scratch when adding deps mid-phase
 
 ### Pending Todos
 
-None yet.
+None yet — roadmap just drafted.
 
 ### Blockers/Concerns
 
-- Real CV content (work experience, bio, skills) will be placeholders in Phase 2; must be replaced before launch
-- 03-REVIEW.md surfaced 13 advisory findings (1 Critical CR-01, 6 Warnings, 6 Info) — non-blocking but recommend triage before merge or in Phase 4
-- playwright.config.ts baseURL changed to port 3001 (Wave 3 deviation) — review for CI portability
-- 1 PR open awaiting human merge: https://github.com/axelwaserman/axelwaserman.github.io/pull/1
+- None identified at roadmap time. Phase 8 will need a content-authoring decision (which 3+ projects get P/S/I metadata) — handled during plan-phase.
+- Phase 9 must verify zero `cv.pdf` references in `out/` after rename — this is a grep-able exit gate, not a risk.
 
 ## Deferred Items
 
@@ -103,6 +100,7 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-05T07:03:10.881Z
-Stopped at: Phase 6 context gathered
-Resume file: .planning/phases/06-get-in-touch-form/06-CONTEXT.md
+Last session: 2026-06-06T00:00:00.000Z
+Stopped at: Milestone v1.1 roadmap drafted (Phases 7–9 with success criteria + 100% requirement coverage)
+Resume file: .planning/ROADMAP.md (Phases 7–9 detail sections)
+Next command: `/gsd:plan-phase 7`

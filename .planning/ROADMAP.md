@@ -2,7 +2,9 @@
 
 ## Overview
 
-Five phases, dependency-ordered: the build configuration and design system come first so every subsequent phase can build cleanly. Static content sections ship next, producing a visually complete site before any API work. The GitHub data layer wires in after the static shell is proven. Deployment goes after that — deploy a confirmed working build, not a guess. Phase 5 closes remaining polish items surfaced in production: favicon, decorative pattern, real CV data, and switching from dummy to live GitHub project data.
+**Milestone v1.0 (shipped):** Five planned phases plus two polish phases delivered the static personal site — foundation, content, projects, deploy, polish, and a Formspree-backed contact form.
+
+**Milestone v1.1 (active — positioning):** Three additional phases reposition the site and CV for Engineering Manager / Staff Data Engineer roles at async B2B SaaS. The work is scoped tightly: a new Engineering Philosophy section, a Problem→Solution→Impact rewrite of the project portfolio, and a Typst CV semantic pass plus build artifact rename. Phases are sequenced low-to-high blast radius so visible UI surface ships first, content reshape ships second, and the document-engineering work (which touches build commands, data files, and download paths site-wide) ships last.
 
 ## Phases
 
@@ -13,12 +15,20 @@ Five phases, dependency-ordered: the build configuration and design system come 
 
 Decimal phases appear between their surrounding integers in numeric order.
 
+### Milestone v1.0 (shipped)
+
 - [x] **Phase 1: Foundation** - Project scaffold, static export config, design tokens, and HTML shell (completed 2026-05-18)
 - [x] **Phase 2: Content** - All static sections (Hero, CV, About, Contact) with layout, navigation, and responsiveness (completed 2026-05-21)
 - [x] **Phase 3: Projects** - GitHub API data layer and projects section wired end-to-end (completed 2026-05-30, currently rendering fallback/dummy data — see Phase 5)
 - [x] **Phase 4: Deploy** - GitHub Actions workflow with daily cron delivering the live site (completed 2026-06-03)
 - [x] **Phase 5: Polish** - Favicon, decorative mandala pattern, real CV content + hyperlinks, real GitHub projects from the API (not the fallback) (completed 2026-06-05)
 - [x] **Phase 6: Get-in-touch form** - Replace direct contact links (mailto/LinkedIn/GitHub) with a Formspree-backed contact form; keep email visible as plain text + JSON-LD Person markup for ATS / SEO crawlers (completed 2026-06-05)
+
+### Milestone v1.1 (positioning — active)
+
+- [ ] **Phase 7: Engineering Philosophy** - New standalone section between CV and Projects with three pillar cards (Documentation First / High Agency & Iteration / Metrics over Activity)
+- [ ] **Phase 8: Project Portfolio P→S→I rewrite** - Replace single-paragraph project descriptions with labelled Problem / Solution / Impact blocks carrying at least one quantitative metric per Impact line
+- [ ] **Phase 9: CV semantic pass + build rename** - Rewrite Typst CV bullets with high-agency verbs and quantitative metrics; rename build artifact to `Axel_Waserman_Engineering_Manager.pdf` and update every download path
 
 ## Phase Details
 
@@ -193,11 +203,59 @@ Plans:
 - [x] 06-05-PLAN.md — Hero CTA swap: replace mailto: anchor with same-page #contact 'Get in touch' anchor (D-19) — depends on 06-03
 - [x] 06-06-PLAN.md — Playwright E2E spec (validation/happy/error/honeypot/JSON-LD/visual screenshots), real Formspree ID provisioning (human checkpoint), visual review per feedback_visual_review_static_export.md — depends on 06-01..06-05
 
+### Phase 7: Engineering Philosophy
+
+**Goal**: A visitor scrolling past the CV section encounters a labelled "Engineering Philosophy" section that reads as three opinionated, async-first pillar cards (Documentation First / High Agency & Iteration / Metrics over Activity) before they reach the Projects section — establishing positioning context before they evaluate the work
+**Mode:** mvp
+**Depends on**: Phase 6
+**Requirements**: PHIL-01, PHIL-02, PHIL-03
+**Success Criteria** (what must be TRUE):
+
+  1. A new section with heading "Engineering Philosophy" renders between the CV section and the Projects section on the homepage in DOM order
+  2. The section contains exactly three pillar cards titled Documentation First, High Agency & Iteration, and Metrics over Activity, each with the verbatim body paragraph from the milestone spec
+  3. The section is a Server Component (no client-side fetching, no hydration cost) and uses existing typography/color tokens — visually consistent with adjacent sections
+  4. The section is overflow-free and readable at 320 / 768 / 1440 widths; the production `next build` static export contains the section's text in the rendered HTML
+
+**Plans**: TBD
+**UI hint**: yes
+
+### Phase 8: Project Portfolio P→S→I rewrite
+
+**Goal**: A recruiter scanning the Projects section sees each showcased project broken into three labelled blocks — Problem, Solution, Impact — with at least one explicit quantitative metric in every Impact block; projects without authored P/S/I metadata fall back to the existing single-description rendering so no card ever looks broken
+**Mode:** mvp
+**Depends on**: Phase 7
+**Requirements**: PORT-01, PORT-02, PORT-03, PORT-04
+**Success Criteria** (what must be TRUE):
+
+  1. The project data type/schema (in `src/data/projects.ts` or equivalent) carries optional Problem, Solution, and Impact string fields per repo, populated for at least `work_assistant`, the data pipelines project, and the math visualizer
+  2. Each project card with P/S/I metadata renders three labelled blocks (Problem / Solution / Impact) instead of a single description paragraph
+  3. Every populated Impact block contains at least one explicit quantitative metric (percentage, time saved, throughput, headcount, or count) — verified by inspecting the rendered HTML
+  4. Project cards lacking P/S/I metadata gracefully degrade to the existing single-description layout — production build shows zero broken or empty cards
+  5. The build-time GitHub fetcher continues to populate name/description/homepage/language/pushedAt unchanged; P/S/I authoring is a content-side overlay, not a fetcher rewrite
+
+**Plans**: TBD
+**UI hint**: yes
+
+### Phase 9: CV semantic pass + build rename
+
+**Goal**: A recruiter downloading the CV from the live site receives a file named `Axel_Waserman_Engineering_Manager.pdf` whose every operational bullet leads with a high-agency engineering verb and contains at least one quantitative metric — no passive corporate verbs, no graphic skill bars, no broken `cv.pdf` links anywhere in the deployed site
+**Mode:** mvp
+**Depends on**: Phase 8
+**Requirements**: CV-CONTENT-01, CV-CONTENT-02, CV-CONTENT-03, CV-BUILD-01, CV-BUILD-02, CV-BUILD-03
+**Success Criteria** (what must be TRUE):
+
+  1. `assets/CV.typ` contains zero instances of `responsible for`, `managed team of`, `assisted with`, `helped`, `worked on`, `participated in`, `tasked with` (case-insensitive grep returns no matches across operational bullets)
+  2. Every operational bullet in `assets/CV.typ` opens with a high-agency verb from the approved set (Architected / Spearheaded / Shipped / Consolidated / Drove / Built / Established / Eliminated / Migrated) AND contains at least one explicit quantitative metric
+  3. Compiling `assets/CV.typ` with the latest stable Typst CLI produces zero errors, zero warnings, and zero overflow; the output file is named `Axel_Waserman_Engineering_Manager.pdf` deterministically (build command, justfile recipe, or CI step encodes the name)
+  4. The CV layout remains ATS-scannable — single or standard dual-column text only, with zero graphic skill bars / progress wheels / decorative canvas elements
+  5. Every download path in the site source (`Hero.tsx` Download CV anchor, `DownloadCVButton.tsx`, `public/` artifact, any e2e specs or data modules) points to `Axel_Waserman_Engineering_Manager.pdf`; a grep for `cv.pdf` in the production `out/` build output returns zero results
+
+**Plans**: TBD
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -205,7 +263,8 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Content | 3/3 | Complete   | 2026-05-21 |
 | 3. Projects | 3/3 | Complete   | 2026-05-30 |
 | 4. Deploy | 3/3 | Complete   | 2026-06-03 |
-| 5. Polish | 0/8 | In progress | - |
+| 5. Polish | 8/8 | Complete   | 2026-06-05 |
 | 6. Get-in-touch form | 6/6 | Complete   | 2026-06-05 |
-</content>
-</invoke>
+| 7. Engineering Philosophy | 0/0 | Not started | - |
+| 8. Project Portfolio P→S→I rewrite | 0/0 | Not started | - |
+| 9. CV semantic pass + build rename | 0/0 | Not started | - |
