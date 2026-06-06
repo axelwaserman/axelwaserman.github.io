@@ -8,6 +8,11 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 100)
+    // Sync initial state to actual scroll position — fixes a flash when the
+    // user lands on a deep-link anchor (#projects) where the page is already
+    // scrolled past the threshold but the header would otherwise render in
+    // its unscrolled (transparent) state until the first scroll event.
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
