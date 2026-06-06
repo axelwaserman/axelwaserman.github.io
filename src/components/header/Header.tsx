@@ -40,6 +40,12 @@ export default function Header() {
           CV
         </a>
         <a
+          href="#philosophy"
+          className="text-[var(--color-text)] no-underline hover:text-[var(--color-accent)] hover:underline focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2"
+        >
+          Philosophy
+        </a>
+        <a
           href="#projects"
           className="text-[var(--color-text)] no-underline hover:text-[var(--color-accent)] hover:underline focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2"
         >
