@@ -111,18 +111,18 @@ function startStaticServer(rootDir) {
 async function waitForReady(url, timeoutMs = 10_000) {
   const deadline = Date.now() + timeoutMs
   while (Date.now() < deadline) {
-    try {
-      const ok = await new Promise((resolve) => {
-        const req = http.get(url, (res) => {
-          res.resume()
-          resolve((res.statusCode ?? 0) >= 200 && (res.statusCode ?? 0) < 500)
-        })
-        req.on('error', () => resolve(false))
+    const ok = await new Promise((resolve) => {
+      const req = http.get(url, { timeout: 1_000 }, (res) => {
+        res.resume()
+        resolve((res.statusCode ?? 0) >= 200 && (res.statusCode ?? 0) < 500)
       })
-      if (ok) return
-    } catch {
-      // retry
-    }
+      req.on('error', () => resolve(false))
+      req.on('timeout', () => {
+        req.destroy()
+        resolve(false)
+      })
+    })
+    if (ok) return
     await new Promise((r) => setTimeout(r, 100))
   }
   throw new Error(`Static server at ${url} did not respond within ${timeoutMs}ms`)
