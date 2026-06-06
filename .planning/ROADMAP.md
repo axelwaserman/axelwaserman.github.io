@@ -26,7 +26,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 ### Milestone v1.1 (positioning — active)
 
-- [ ] **Phase 7: Engineering Philosophy** - New standalone section between CV and Projects with three pillar cards (Documentation First / High Agency & Iteration / Metrics over Activity)
+- [x] **Phase 7: Engineering Philosophy** - New standalone section between CV and Projects with three pillar cards (Documentation First / High Agency & Iteration / Metrics over Activity) (completed 2026-06-06)
 - [ ] **Phase 8: Project Portfolio P→S→I rewrite** - Replace single-paragraph project descriptions with labelled Problem / Solution / Impact blocks carrying at least one quantitative metric per Impact line
 - [ ] **Phase 9: CV semantic pass + build rename** - Rewrite Typst CV bullets with high-agency verbs and quantitative metrics; rename build artifact to `Axel_Waserman_Engineering_Manager.pdf` and update every download path
 
@@ -221,7 +221,7 @@ Plans:
 
 Plans:
 
-- [ ] 07-01-PLAN.md — Pillar data module + Philosophy/PillarCard Server Components, page.tsx wiring between CV and Projects, header nav anchor, visual review at 320/768/1440
+- [x] 07-01-PLAN.md — Pillar data module + Philosophy/PillarCard Server Components, page.tsx wiring between CV and Projects, header nav anchor, visual review at 320/768/1440
 
 ### Phase 8: Project Portfolio P→S→I rewrite
 
@@ -269,6 +269,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 4. Deploy | 3/3 | Complete   | 2026-06-03 |
 | 5. Polish | 8/8 | Complete   | 2026-06-05 |
 | 6. Get-in-touch form | 6/6 | Complete   | 2026-06-05 |
-| 7. Engineering Philosophy | 0/0 | Not started | - |
+| 7. Engineering Philosophy | 2/2 | Complete   | 2026-06-06 |
 | 8. Project Portfolio P→S→I rewrite | 0/0 | Not started | - |
 | 9. CV semantic pass + build rename | 0/0 | Not started | - |
