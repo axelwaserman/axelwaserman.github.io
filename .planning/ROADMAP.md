@@ -216,8 +216,12 @@ Plans:
   3. The section is a Server Component (no client-side fetching, no hydration cost) and uses existing typography/color tokens — visually consistent with adjacent sections
   4. The section is overflow-free and readable at 320 / 768 / 1440 widths; the production `next build` static export contains the section's text in the rendered HTML
 
-**Plans**: TBD
+**Plans**: 1 plan
 **UI hint**: yes
+
+Plans:
+
+- [ ] 07-01-PLAN.md — Pillar data module + Philosophy/PillarCard Server Components, page.tsx wiring between CV and Projects, header nav anchor, visual review at 320/768/1440
 
 ### Phase 8: Project Portfolio P→S→I rewrite
 
