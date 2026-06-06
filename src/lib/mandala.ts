@@ -171,8 +171,11 @@ export function xorshift32(seed: number): () => number {
  *
  * - `seed` selects the visual variant (ring count, petal counts, rotations).
  * - `canvasSize` controls the viewBox; petal radii and stroke widths scale
- *   linearly with it, so the same seed produces a visually consistent mandala
- *   at 32px (favicon) and 180px (apple-touch icon).
+ *   strictly proportionally with it, so the same seed produces a visually
+ *   identical mandala family at 32px (favicon) and 180px (apple-touch icon).
+ *   No `Math.max` clamps are applied to geometry: any clamping would diverge
+ *   at small canvas sizes and break the "shared seed → shared visual identity"
+ *   contract relied on by src/app/icon.tsx and src/app/apple-icon.tsx.
  *
  * Output: a single <svg> element ready to be embedded as ImageResponse children.
  */
@@ -204,7 +207,10 @@ export function generateMandala(
   const cx = canvasSize / 2
   const cy = canvasSize / 2
   const maxRadius = canvasSize * 0.45
-  const strokeWidth = Math.max(0.75, canvasSize / 64)
+  // Scale strictly proportionally — no Math.max clamp. Clamping at small
+  // sizes (e.g. 32px favicon) would change the stroke-width-to-radius ratio
+  // versus larger sizes (180px apple-touch) and break visual identity.
+  const strokeWidth = canvasSize / 64
 
   const elements: ReactElement[] = []
   let elementKey = 0
@@ -227,7 +233,8 @@ export function generateMandala(
     const radius = (ringIndex / (ringCount + 1)) * maxRadius
     const petalCount = petalCounts[i]
     const rotationOffsetRad = (rotationOffsets[i] * Math.PI) / 180
-    const petalRadius = Math.max(1, canvasSize * 0.04 * (1 - i / ringCount))
+    // Strictly proportional — no Math.max clamp (see generateMandala JSDoc).
+    const petalRadius = canvasSize * 0.04 * (1 - i / ringCount)
     // Alternate stroke colors per ring so the mandala has a hint of warmth
     // without flooding the design — even rings = ink, odd rings = accent.
     const ringColor = i % 2 === 0 ? FAVICON_TEXT_SRGB : FAVICON_ACCENT_SRGB
@@ -270,7 +277,8 @@ export function generateMandala(
       key: `center-${elementKey++}`,
       cx,
       cy,
-      r: Math.max(1, canvasSize * 0.04),
+      // Strictly proportional center dot — see generateMandala JSDoc.
+      r: canvasSize * 0.04,
       fill: FAVICON_ACCENT_SRGB,
       stroke: FAVICON_TEXT_SRGB,
       strokeWidth: strokeWidth * 0.5,
