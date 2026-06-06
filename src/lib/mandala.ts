@@ -150,10 +150,23 @@ function djb2(str: string): number {
  * Reads the build-time commit SHA from the environment and returns a deterministic
  * 32-bit seed. Falls back to a constant string for offline / local dev builds so
  * the same dev machine always sees the same mandala until they push.
+ *
+ * In CI production builds (NODE_ENV=production AND CI=true) the function fails
+ * loudly when neither GITHUB_SHA nor VERCEL_GIT_COMMIT_SHA is set — a missing
+ * SHA in CI usually means the runner stopped injecting it (e.g. switching to a
+ * self-hosted runner) and the favicon would silently degrade to the same
+ * 'local-dev' mandala on every push, which we want to surface immediately.
  */
 export function seedFromCommit(): number {
-  const sha =
-    process.env.GITHUB_SHA ?? process.env.VERCEL_GIT_COMMIT_SHA ?? 'local-dev'
+  const sha = process.env.GITHUB_SHA ?? process.env.VERCEL_GIT_COMMIT_SHA
+  if (!sha) {
+    if (process.env.NODE_ENV === 'production' && process.env.CI) {
+      throw new Error(
+        'seedFromCommit: no commit SHA available in CI build (expected GITHUB_SHA or VERCEL_GIT_COMMIT_SHA).',
+      )
+    }
+    return djb2('local-dev')
+  }
   return djb2(sha)
 }
 
