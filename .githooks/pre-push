@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Pre-push gate. Mirrors .github/workflows/ci.yml verify steps so CI failures
+# surface locally instead of after a remote roundtrip.
+#
+# Skip with: git push --no-verify
+set -euo pipefail
+
+if [ "${SKIP_PREPUSH:-0}" = "1" ]; then
+  echo "[pre-push] SKIP_PREPUSH=1 set — skipping"
+  exit 0
+fi
+
+cd "$(git rev-parse --show-toplevel)"
+
+echo "[pre-push] format:check"
+npm run --silent format:check
+
+echo "[pre-push] lint"
+npm run --silent lint
+
+echo "[pre-push] tsc --noEmit"
+npx --no-install tsc --noEmit
+
+echo "[pre-push] test"
+npm test --silent
+
+echo "[pre-push] all checks passed"

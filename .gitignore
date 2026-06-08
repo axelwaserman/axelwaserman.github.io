@@ -46,3 +46,7 @@ test-results/
 # Stray screenshots dropped at the repo root during review
 /[0-9][0-9][0-9][0-9]-*.jpg
 /[0-9][0-9][0-9][0-9]-*.png
+
+# Generated OG image (rebuilt by scripts/generate-og-image.mjs in CI / locally)
+public/og-image.png
+out/og-image.png

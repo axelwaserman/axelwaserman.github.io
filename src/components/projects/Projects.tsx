@@ -23,9 +23,9 @@ export default async function Projects() {
       {projects.length === 0 ? (
         <ProjectsEmptyState />
       ) : (
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 auto-rows-fr">
           {projects.map((p) => (
-            <li key={p.repoUrl}>
+            <li key={p.repoUrl} className="h-full">
               <ProjectCard project={p} />
             </li>
           ))}

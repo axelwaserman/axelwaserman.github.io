@@ -8,6 +8,11 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 100)
+    // Sync initial state to actual scroll position — fixes a flash when the
+    // user lands on a deep-link anchor (#projects) where the page is already
+    // scrolled past the threshold but the header would otherwise render in
+    // its unscrolled (transparent) state until the first scroll event.
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -22,7 +27,7 @@ export default function Header() {
     >
       <a
         href="#hero"
-        className="font-[var(--font-heading)] text-[length:var(--text-body)] font-semibold text-[var(--color-text)] no-underline"
+        className="font-[var(--font-heading)] text-[length:var(--text-body)] font-semibold text-[var(--color-text)] no-underline hover:text-[var(--color-accent)] hover:underline focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2"
       >
         Axel W
       </a>
@@ -38,6 +43,12 @@ export default function Header() {
           className="text-[var(--color-text)] no-underline hover:text-[var(--color-accent)] hover:underline focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2"
         >
           CV
+        </a>
+        <a
+          href="#philosophy"
+          className="text-[var(--color-text)] no-underline hover:text-[var(--color-accent)] hover:underline focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2"
+        >
+          Philosophy
         </a>
         <a
           href="#projects"

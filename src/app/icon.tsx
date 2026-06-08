@@ -1,6 +1,5 @@
 import { ImageResponse } from 'next/og'
-import { readFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { generateMandala, seedFromCommit } from '@/lib/mandala'
 
 // Next.js App Router favicon convention:
 // - `size` and `contentType` configure the emitted asset metadata.
@@ -15,27 +14,28 @@ export const contentType = 'image/png' as const
 //   "export const dynamic = 'force-static' not configured on route '/icon'"
 export const dynamic = 'force-static'
 
-// D-18: AW monogram in Instrument Serif on parchment surface.
+// BRAND-01: seeded mandala from commit SHA (replaces the AW monogram, D-18).
 // D-19: Single source of truth — no `public/favicon.ico` legacy fallback.
 // D-20: Color tokens sourced from src/styles/tokens.css.
 //   --color-surface = oklch(97% 0.01 75) → sRGB rgb(249, 244, 238)
 //   --color-text    = oklch(18% 0.01 75) → sRGB rgb(20, 17, 13)
+//   --color-accent  = oklch(62% 0.19 55) → sRGB rgb(214, 99, 47)
 // Satori (the Vercel/og renderer behind ImageResponse) does not yet support
-// `oklch()` color values, so the inline styles use precomputed sRGB equivalents
-// while the oklch source-of-truth values remain documented above.
-// Path B (revision 2026-06-04): Load TTF from disk via readFile for deterministic, offline-safe builds.
+// `oklch()` color values, so the mandala generator emits precomputed sRGB
+// equivalents while the oklch source-of-truth values remain documented above.
 const SURFACE_OKLCH = 'oklch(97% 0.01 75)' // D-20 source token (--color-surface)
 const TEXT_OKLCH = 'oklch(18% 0.01 75)' // D-20 source token (--color-text)
+const ACCENT_OKLCH = 'oklch(62% 0.19 55)' // D-20 source token (--color-accent)
 const SURFACE_SRGB = 'rgb(249, 244, 238)' // sRGB equivalent of SURFACE_OKLCH for Satori
-const TEXT_SRGB = 'rgb(20, 17, 13)' // sRGB equivalent of TEXT_OKLCH for Satori
 
 export default async function Icon(): Promise<ImageResponse> {
-  const fontPath = join(process.cwd(), 'src/app/instrument-serif-400.ttf')
-  const fontData = await readFile(fontPath)
-
   // Reference oklch literals so they appear in the bundle/source for D-20 traceability.
   void SURFACE_OKLCH
   void TEXT_OKLCH
+  void ACCENT_OKLCH
+
+  const seed = seedFromCommit()
+  const { children: mandala } = generateMandala(seed, size.width)
 
   return new ImageResponse(
     <div
@@ -46,24 +46,12 @@ export default async function Icon(): Promise<ImageResponse> {
         alignItems: 'center',
         justifyContent: 'center',
         background: SURFACE_SRGB,
-        color: TEXT_SRGB,
-        fontSize: 22,
-        letterSpacing: '-0.02em',
-        fontFamily: 'Instrument Serif',
       }}
     >
-      AW
+      {mandala}
     </div>,
     {
       ...size,
-      fonts: [
-        {
-          name: 'Instrument Serif',
-          data: fontData,
-          weight: 400,
-          style: 'normal',
-        },
-      ],
     },
   )
 }

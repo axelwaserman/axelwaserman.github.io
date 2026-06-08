@@ -10,8 +10,10 @@
     "lint": "eslint . --max-warnings 0",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "og:generate": "node scripts/generate-og-image.mjs",
     "test": "vitest run --passWithNoTests",
-    "test:watch": "vitest --passWithNoTests"
+    "test:watch": "vitest --passWithNoTests",
+    "prepare": "git config core.hooksPath .githooks"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
