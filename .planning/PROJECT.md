@@ -27,6 +27,8 @@ A recruiter, collaborator, or curious stranger can land on the site, understand 
 - [x] **PROJ-03** (Phase 3, verified 2026-06-03): Each project entry links to a live demo if `homepage` field is set
 - [x] **INFRA-07** (Phase 4, mechanically verified 2026-06-03; live UAT pending post-merge): GitHub Actions workflow with push-to-main, daily cron, and `workflow_dispatch` triggers; deploys to GitHub Pages via `actions/configure-pages@v5` + `actions/deploy-pages@v5`
 - [x] **CONTACT-06** (Phase 6, verified 2026-06-05): Working contact surface — Formspree-backed form with Zod validation, /thanks confirmation route, anti-harvest base64 email obfuscation, JSON-LD Person schema injected client-side post-hydration, mailto: anchors removed site-wide
+- [x] **PHIL-01, PHIL-02, PHIL-03** (Phase 7, verified 2026-06-08): Engineering Philosophy section between CV and Projects — three Server-Component pillar cards (Documentation First / High Agency & Iteration / Metrics over Activity) with header anchor, copy approved
+- [x] **BRAND-01, BRAND-02, BRAND-03** (Phase 7, verified 2026-06-08): commit-SHA-seeded mandala favicon + apple-icon, real Playwright-rendered 1200×630 OG image generated post-build in CI
 
 ### Active
 
@@ -94,4 +96,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-06 after starting milestone v1.1 (positioning pass for EM/Staff Data Eng applications at async B2B SaaS)*
+*Last updated: 2026-06-08 after Phase 7 (Engineering Philosophy + brand assets) complete*
