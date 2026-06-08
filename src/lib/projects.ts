@@ -92,7 +92,7 @@ export async function fetchProjects(): Promise<Project[]> {
       .slice()
       .sort((a, b) => (b.pushed_at ?? '').localeCompare(a.pushed_at ?? ''))
 
-    return sorted.map((raw) => ({
+    return sorted.slice(0, 4).map((raw) => ({
       name: raw.name,
       description:
         typeof raw.description === 'string' && raw.description.length > 0 ? raw.description : null,
