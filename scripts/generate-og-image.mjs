@@ -170,9 +170,7 @@ async function main() {
 
     const stat = await fs.stat(outPath)
     if (stat.size < 10_000 || stat.size > 500_000) {
-      throw new Error(
-        `OG image size out of bounds: ${stat.size} bytes (expected 10_000..500_000).`,
-      )
+      throw new Error(`OG image size out of bounds: ${stat.size} bytes (expected 10_000..500_000).`)
     }
 
     process.stdout.write(

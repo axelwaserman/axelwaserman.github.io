@@ -199,10 +199,7 @@ export function xorshift32(seed: number): () => number {
  *
  * Output: a single <svg> element ready to be embedded as ImageResponse children.
  */
-export function generateMandala(
-  seed: number,
-  canvasSize: number,
-): MandalaResult {
+export function generateMandala(seed: number, canvasSize: number): MandalaResult {
   const prng = xorshift32(seed)
 
   // 3..5 rings — enough variation to feel intentional, few enough to read at 16px.

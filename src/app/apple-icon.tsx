@@ -23,20 +23,18 @@ export default async function AppleIcon(): Promise<ImageResponse> {
   const { children: mandala } = generateMandala(seed, size.width)
 
   return new ImageResponse(
-    (
-      <div
-        style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: SURFACE_SRGB,
-        }}
-      >
-        {mandala}
-      </div>
-    ),
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: SURFACE_SRGB,
+      }}
+    >
+      {mandala}
+    </div>,
     {
       ...size,
     },
