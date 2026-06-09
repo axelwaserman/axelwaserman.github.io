@@ -2,6 +2,7 @@ import 'server-only'
 // This file is consumed only by Server Components at build time — never shipped to the client.
 
 import type { Project } from '@/data/projects'
+import { psiOverrides } from '@/data/psi'
 import projectsFallback from '@/data/projects.json'
 
 const GITHUB_USERNAME = process.env.GITHUB_USERNAME ?? 'axelwaserman'
@@ -101,6 +102,7 @@ export async function fetchProjects(): Promise<Project[]> {
         typeof raw.pushed_at === 'string' && raw.pushed_at.length > 0 ? raw.pushed_at : null,
       repoUrl: raw.html_url,
       homepage: isHttpUrl(raw.homepage) ? raw.homepage : null,
+      psi: psiOverrides[raw.name],
     }))
   } catch (error: unknown) {
     // intentional build-time warning per CTX D-06; this code only runs during `next build`, never in the client bundle

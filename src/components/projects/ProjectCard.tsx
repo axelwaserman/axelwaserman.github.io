@@ -21,7 +21,24 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {relative && project.pushedAt && <time dateTime={project.pushedAt}>{relative}</time>}
         </p>
       )}
-      {description ? (
+      {project.psi ? (
+        <dl className="flex flex-col gap-3 text-[length:var(--text-body)]">
+          {(
+            [
+              ['Problem', project.psi.problem],
+              ['Solution', project.psi.solution],
+              ['Impact', project.psi.impact],
+            ] as const
+          ).map(([label, text]) => (
+            <div key={label}>
+              <dt className="text-[length:var(--text-ui)] font-semibold uppercase tracking-[0.06em] text-[var(--color-muted)] mb-0.5">
+                {label}
+              </dt>
+              <dd className="max-w-[55ch] leading-relaxed">{text}</dd>
+            </div>
+          ))}
+        </dl>
+      ) : description ? (
         <p className="text-[length:var(--text-body)] max-w-[55ch]">{description}</p>
       ) : (
         <p className="sr-only">No description provided</p>

@@ -1,3 +1,9 @@
+export interface ProjectPSI {
+  problem: string
+  solution: string
+  impact: string
+}
+
 export interface Project {
   name: string
   description: string | null
@@ -5,4 +11,5 @@ export interface Project {
   pushedAt: string | null
   repoUrl: string
   homepage: string | null
+  psi?: ProjectPSI
 }
