@@ -8,7 +8,7 @@
 export default function DownloadCVButton() {
   return (
     <a
-      href="/cv.pdf"
+      href="/Axel_Waserman_Engineering_Manager.pdf"
       download
       aria-label="Download CV (PDF)"
       className="inline-flex items-center gap-2 py-3 px-5 bg-transparent text-[length:var(--text-ui)] font-semibold text-[var(--color-text)] border-0 border-b border-[var(--color-accent)] rounded-none hover:border-b-2 transition-[border-bottom-width] duration-150 ease-out focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-4 w-full justify-center sm:w-auto sm:justify-start"

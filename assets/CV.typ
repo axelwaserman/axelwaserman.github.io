@@ -94,22 +94,21 @@
 *Engineering Manager* #h(1fr) *Jan 2024 – Apr 2025* \
 #tech-stack("Python, FastAPI, Dagster, PostgreSQL, Snowflake, dbt, AWS, Terraform, Docker, GitHub Actions")
 
-- Promoted to lead a newly formed, geographically distributed department of 5 Engineers following the acquisition of Hotjar. Tasked with merging distinct engineering cultures, modernizing the data backend, and delivering high-leverage data products.
-- *Post-Acquisition Integration:* Successfully integrated Hotjar’s remote-first team culture into Contentsquare, standardizing async documentation frameworks and workflows across 4 time zones to eliminate cultural friction and synchronous dependencies.
-- *Scaled Business-Critical Backend & Data Platform:* Architected and scaled a highly reliable system orchestrating ~10,000 data assets across a ~20TB data estate. Powering global company reporting, sales commission payouts, Product Qualified Leads (PQL) computation, and automated retention orchestrators with a zero data downtime record.
-- *Built Self-Serve Systems:* Directed the hands-on development of a secure, internal API and data access system, enabling non-technical stakeholders to safely query the main data warehouse. Eliminated engineering bottlenecks and fostered an autonomous engineering environment.
-- *Drove Engineering Velocity:* Revamped the team's CI/CD practices, automated testing frameworks, and deployment workflows, increasing deployment frequency by 40% and Q-o-Q initiative delivery by 20%.
-- *Cultivated High-Performing, Resilient Teams:* Led full-cycle engineering hiring with a 100% probation pass rate. Maintained 100% team retention across a fully distributed team by anchoring operations in documentation, running blameless post-mortems, and fostering psychological safety.
+- Spearheaded a newly formed, geographically distributed department of 5 Engineers post-Hotjar acquisition — merging distinct engineering cultures, modernizing the data backend, and shipping high-leverage data products.
+- *Post-Acquisition Integration:* Consolidated Hotjar’s remote-first practices into Contentsquare by standardizing async documentation frameworks across 4 time zones, eliminating synchronous dependencies and cultural friction.
+- *Scaled Business-Critical Backend & Data Platform:* Architected and scaled a zero-downtime system orchestrating ~10,000 data assets across a ~20TB estate — powering global reporting, sales commission payouts, PQL computation, and automated retention orchestrators.
+- *Built Self-Serve Systems:* Shipped a secure internal API and data access layer enabling non-technical stakeholders to safely self-serve the main data warehouse, eliminating engineering bottlenecks.
+- *Drove Engineering Velocity:* Overhauled CI/CD practices, automated testing frameworks, and deployment workflows — increasing deployment frequency by 40% and Q-o-Q initiative delivery by 20%.
+- *Cultivated High-Performing, Resilient Teams:* Hired with a 100% probation pass rate; maintained 100% retention across a fully distributed team through documentation-first operations, blameless post-mortems, and psychological safety.
 
 #v(0.2em)
 *Data Engineer II* #h(1fr) *Jan 2023 – Dec 2023* \
 *Data Engineer I* #h(1fr) *May 2022 – Dec 2022* \
 
-- Operated as a core IC building a reliable data backend to unify internal systems across the organization.
-- Designed and implemented scalable backend ELT pipelines using Python, FastAPI, and modern orchestration tooling, enabling product-led growth.
-- Transitioned the engineering function to a "product-oriented" operating model, building internal tools that minimized operational dependencies for data scientists and analysts.
-- Optimized legacy infrastructure (Redshift, scripted Python ETLs, cron) while actively migrating them to modern, cost-efficient cloud architectures.
-- Established robust backend engineering standards by writing comprehensive unit/integration tests and implementing CI/CD pipelines from scratch.
+- Built the reliable data backend underpinning internal system unification — designed and shipped scalable ELT pipelines in Python and FastAPI that enabled product-led growth across the organization.
+- Established a product-oriented engineering operating model, delivering internal tooling that eliminated data scientist and analyst dependencies on the engineering team.
+- Migrated legacy infrastructure (Redshift, scripted ETLs, cron) to modern, cost-efficient cloud architectures, reducing operational overhead and improving pipeline reliability.
+- Instituted engineering standards from scratch: comprehensive unit/integration test suites and CI/CD pipelines across all backend services.
 
 == PwC France
 *Data Engineer* #h(1fr) *Feb 2021 – Apr 2022* \
