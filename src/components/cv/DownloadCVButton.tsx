@@ -11,7 +11,7 @@ export default function DownloadCVButton() {
       href="/Axel_Waserman_Engineering_Manager.pdf"
       download
       aria-label="Download CV (PDF)"
-      className="inline-flex items-center gap-2 py-3 px-5 bg-transparent text-[length:var(--text-ui)] font-semibold text-[var(--color-text)] border-0 border-b border-[var(--color-accent)] rounded-none hover:border-b-2 transition-[border-bottom-width] duration-150 ease-out focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-4 w-full justify-center sm:w-auto sm:justify-start"
+      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[var(--radius-card)] border border-[var(--color-muted)]/30 bg-transparent text-[length:var(--text-ui)] font-medium text-[var(--color-muted)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2 transition-[color,border-color] duration-150 ease-out"
     >
       <svg
         viewBox="0 0 24 24"

@@ -36,7 +36,7 @@ export default async function Projects() {
               href="https://github.com/axelwaserman?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--color-border)] text-[length:var(--text-ui)] font-medium text-[var(--color-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-text)] transition-colors duration-[var(--duration-normal)]"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[var(--radius-card)] border border-[var(--color-muted)]/30 bg-transparent text-[length:var(--text-ui)] font-medium text-[var(--color-muted)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2 transition-[color,border-color] duration-150 ease-out"
             >
               View all projects on GitHub
               <svg

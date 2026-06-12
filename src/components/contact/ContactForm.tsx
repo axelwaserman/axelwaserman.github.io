@@ -197,7 +197,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="self-start rounded-[var(--radius-card)] bg-[var(--color-text)] text-[var(--color-surface)] text-[length:var(--text-ui)] font-medium px-6 py-3 transition-opacity hover:opacity-90 focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="self-start rounded-[var(--radius-card)] bg-[var(--color-text)] text-[var(--color-surface)] text-[length:var(--text-ui)] font-medium px-5 py-2.5 transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {isSubmitting ? 'Sending…' : 'Send message'}
       </button>

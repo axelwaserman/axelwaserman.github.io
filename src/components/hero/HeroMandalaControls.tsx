@@ -22,7 +22,7 @@ const labelClassName =
   'flex items-center gap-2 text-[length:var(--text-ui)] text-[var(--color-muted)]'
 
 const refreshButtonClassName =
-  'w-11 h-11 rounded-full flex items-center justify-center border-0 bg-transparent text-[var(--color-muted)] hover:text-[var(--color-accent)] hover:bg-[color-mix(in_oklch,var(--color-accent)_8%,transparent)] focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2 active:scale-[0.96] transition-[color,background-color,transform] duration-150 ease-out'
+  'w-10 h-10 rounded-[var(--radius-card)] flex items-center justify-center border border-[var(--color-muted)]/30 bg-transparent text-[var(--color-muted)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2 active:scale-[0.96] transition-[color,border-color,transform] duration-150 ease-out'
 
 export default function HeroMandalaControls({
   n,
@@ -111,7 +111,7 @@ export default function HeroMandalaControls({
         n = {n}, k = {k}
       </span>
       <details className="group max-w-[42ch] text-[length:var(--text-ui)] text-[var(--color-muted)]">
-        <summary className="cursor-pointer select-none underline decoration-dotted underline-offset-4 hover:text-[var(--color-accent)] focus:outline-2 focus:outline-[var(--color-accent)] focus:outline-offset-2 list-none">
+        <summary className="cursor-pointer select-none text-[var(--color-muted)] hover:text-[var(--color-accent)] underline decoration-dotted underline-offset-4 focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2 list-none">
           What is this?
         </summary>
         <p className="mt-2 leading-relaxed">
